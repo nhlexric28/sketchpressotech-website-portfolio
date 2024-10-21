@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketchpressotech Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="logo.jpeg">
+    </div>
+    <div class="burger" onclick="toggleMenu()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <nav id="nav-links">
+        <ul>
+            <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+            <li><a href="#art" onclick="toggleMenu()">Art</a></li>
+            <li><a href="#skills" onclick="toggleMenu()">Computer Skills</a></li>
+            <li><a href="#social" onclick="toggleMenu()">Social Media</a></li>
+            <li><a href="#about" onclick="toggleMenu()">About</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<section id="home" class="hero">
+    <div class="overlay"></div>
+    <h1>Welcome to Sketchpressotech</h1>
+    <p>Discover my art and tech skills</p>
+    <div class="scroll-down" id="scrollDownArrow">
+        <span class="text">Scroll Down</span>
+        <span class="arrow">↓</span>
+    </div>
+
+
+</section>
+
+
+        <section id="art" class="portfolio">
+            <h2>Portrait</h2>
+            <div class="gallery">
+                
+                <div class="card">
+                    <img src="Images/Portraites/art1.jpg" alt="Art 1">
+                </div>
+                <div class="card">
+                    <img src="Images/Portraites/art2.jpg" alt="Art 2">
+                </div>
+                <div class="card">
+                    <img src="Images/Portraites/art3.jpg" alt="Art 3">
+                </div>
+                <div class="card">
+                    <img src="Images/Portraites/art4.jpg" alt="Art 4">
+                </div>
+            </div>
+
+             <h2>Sketches</h2>
+            <div class="gallery">
+                
+                <div class="card">
+                    <img src="Images/Sketches/Sketch1.jpg" alt="Art 1">
+                </div>
+                <div class="card">
+                    <img src="Images/Sketches/Sketch2.jpg" alt="Art 2">
+                </div>
+                <div class="card">
+                    <img src="Images/Sketches/Sketch3.jpg" alt="Art 3">
+                </div>
+                <div class="card">
+                    <img src="Images/Sketches/Sketch4.jpg" alt="Art 4">
+                </div>
+            </div>
+
+        </section>
+
+
+        <section id="skills" class="skills">
+            <h2>Computer Skills</h2>
+            <div class="skills-cards">
+                <div class="card">
+                    <h3>Installing Windows</h3>
+                    <p>Expert in installing and configuring Windows operating systems.</p>
+                </div>
+                <div class="card">
+                    <h3>Fixing Software Issues</h3>
+                    <p>Skilled in troubleshooting and resolving various software problems.</p>
+                </div>
+                <div class="card">
+                    <h3>System Optimization</h3>
+                    <p>Proficient in optimizing system performance for better efficiency.</p>
+                </div>
+            </div>
+        </section>
+
+
+    <section id="social" class="social-media">
+        <h2>Social Media</h2>
+        <div class="social-links">
+          <a href="https://wa.me/0610562911" target="_blank">WhatsApp</a>
+          <a href="https://www.instagram.com/sketchpressotech" target="_blank">Instagram</a>
+          <a href="https://github.com/nhlexric28" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/sketchpressotech" target="_blank">LinkedIn</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>Hi, I'm Nhlanhla Moyo, an artist, tech genuis and cyberr enthusiast. I specialize in pencil art using graphite and charcoal pencils. Beyond traditional mediums, I have a deep passion for computer troubleshooting, always eager to dive into tech issues and solve problems. This hobby has not only sharpened my technical skills but also allows me to assist others, making technology more accessible and less daunting for everyone</p>
+    <div class="resume-options">
+        <a href="_MyCV.pdf" target="_blank">
+            <img src="me.jpg" alt="Your Photo">
+        </a>
+        <div class="resume-buttons">
+            <a href="_MyCV.pdf" target="_blank" class="button">View My Resume</a>
+        </div>
+    </div>
+</section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <form action="submit_form.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2024 Sketchpressotech. All rights reserved.</p>
+        <div id="whatsapp-float">
+            <a href="https://wa.me/0610562911" target="_blank">
+                <img src="whatsapp-icon.png" alt="WhatsApp" />
+            </a>
+        </div>
+
+        <a href="#" id="scrollToTop" class="scroll-to-top">
+          &#8593;
+       </a>
+
+
+    </footer>
+
+
+    <script type="text/javascript">
+            function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('show');
+        }
+
+
+        function toggleMenu() {
+            var nav = document.getElementById('nav-links');
+            nav.classList.toggle('active');
+        }
+
+        //floating code
+
+       
+    document.getElementById('whatsapp-float').addEventListener('click', function() {
+        window.open('https://wa.me/0610562911', '_blank');
+    });
+
+    //scroll up 
+   window.onscroll = function() {
+    let scrollTopButton = document.getElementById("scrollToTop");
+    let scrollDownArrow = document.getElementById("scrollDownArrow");
+
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollTopButton.style.display = "block";
+        scrollDownArrow.style.display = "none";
+    } else {
+        scrollTopButton.style.display = "none";
+        scrollDownArrow.style.display = "block";
+    }
+};
+
+document.getElementById("scrollToTop").addEventListener("click", function(event) {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+
+    </script>
+    <script src="scripts.js"></script>
+</body>
+</html>
