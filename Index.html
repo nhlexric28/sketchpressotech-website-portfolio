@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sketchpressotech Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/three@0.146/build/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/three@0.146/examples/js/loaders/GLTFLoader.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function(){
+                emailjs.init({
+                    publicKey: "zrY3_UXBzB3hd8Dl5",
+                });
+            })();
+        </script>
+    </head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.jpeg" alt="Logo">
+        </div>
+        <nav>
+            <div class="burger" id="burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#art">Art</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#social">Social</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <!-- 3D Animation Container -->
+        <div id="animation-container">
+            <div id="3d-animation"></div>
+            <div id="particle-animation"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Welcome to Sketchpressotech</h1>
+            <p>Discover my art and tech skills</p>
+        </div>
+
+    </section>
+     
+
+    <section id="about" class="about">
+        <!-- Add this inside the about section -->
+        <canvas id="about-particles"></canvas>
+        <h2>About Me</h2>
+        <p>Hi, I'm Nhlanhla Moyo, the founder and operator of Sketchpressotech, a unique blend of tech genius, IT freelancing, and cyber enthusiasm. I specialize in computer troubleshooting, web development, and various other IT services. When I'm not diving into tech issues, I enjoy creating art using graphite and charcoal pencils. This creative outlet complements my technical skills, and allows me to assist clients with both their technological and artistic needs, making tech more accessible and less daunting for everyone.</p>
+        <div class="resume-options">
+          <a href="_MyCV.pdf" target="_blank">
+            <img src="me.jpg" alt="Your Photo">
+          </a>
+          <div class="resume-buttons">
+            <a href="_MyCV.pdf" target="_blank" class="button">View My Resume</a>
+            <a href="#contact" class="button">Contact Me for a Cool Website</a>
+            <a href="#contact" class="button">Get an Art of Yourself/Fam</a>
+          </div>
+        </div>
+      </section>
+      
+
+    <section id="art" class="portfolio">
+    <h2>Portraits</h2>
+    <div class="gallery" id="portrait-gallery"></div>
+
+    <h2>Sketches</h2>
+    <div class="gallery" id="sketch-gallery"></div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div class="caption" id="lightbox-caption"></div>
+    </div>
+</section>
+
+<section id="skills" class="skills">
+    <h2>My Skills & Services</h2>
+    <div class="skills-container">
+        <!-- PC Repair Flyer (Left) -->
+        <div class="skill-flyer left-flyer">
+            <img src="My Flyer.jpg" alt="PC Repair Services">
+        </div>
+
+        <!-- Coding Skills Flyer (Right) -->
+        <div class="skill-flyer right-flyer">
+            <img src="My Flyer1.jpg" alt="Coding Skills & Pricing">
+        </div>
+    </div>
+</section>
+
+    <section id="social" class="social-media">
+        <h2>Let's Connect!</h2>
+        <p>Follow me on social media to stay updated with my latest projects, art, and tech adventures.</p>
+        <div class="social-links">
+            <a href="https://wa.me/+27610562911" target="_blank" class="social-link">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+            <a href="https://www.instagram.com/sketchpressotech" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            <a href="https://github.com/nhlexric28" target="_blank" class="social-link">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/sketchpressotech" target="_blank" class="social-link">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+        </div>
+    </section>
+
+
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2024 Sketchpressotech. All rights reserved.</p>
+        <div id="whatsapp-float">
+            <a href="https://wa.me/+27610562911" target="_blank">
+                <img src="whatsapp-icon.png" alt="WhatsApp">
+            </a>
+        </div>
+        <a href="#" id="scrollToTop" class="scroll-to-top">&#8593;</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
