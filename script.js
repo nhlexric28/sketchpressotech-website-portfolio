@@ -23,10 +23,10 @@ const sketchGallery = document.getElementById('sketch-gallery');
 
 if (portraitGallery && sketchGallery) {
 const portraits = [
-    { src: 'Images/Portraites/art1.jpg', alt: 'Art 1' },
-    { src: 'Images/Portraites/art2.jpg', alt: 'Art 2' },
-    { src: 'Images/Portraites/art3.jpg', alt: 'Art 3' },
-    { src: 'Images/Portraites/Art4.jpg', alt: 'Art 4' },
+    { src: 'Images/Portraites/Art1.jpg', alt: 'Art 1' },
+    { src: 'Images/Portraites/Art2.jpg', alt: 'Art 2' },
+    { src: 'Images/Portraites/Art3.jpg', alt: 'Art 3' },
+    { src: 'Images/Portraites/art4.jpg', alt: 'Art 4' },
 ];
     const sketches = [
         { src: 'Images/Sketches/Sketch1.jpg', alt: 'Sketch 1' },
