@@ -329,7 +329,7 @@ nav ul li a:hover {
 
 .skills-container {
     display: flex;
-    justify-content: space-between; /* This will space the two flyers to the edges */
+    justify-content: space-between; /* Space the two flyers to the edges */
     align-items: center; /* Align items vertically in the center */
     gap: 100px; /* Add some gap between the flyers */
     max-width: 1000px;
@@ -386,10 +386,33 @@ nav ul li a:hover {
 @media (max-width: 768px) {
     .skills h2 {
         font-size: 2rem;
+        color: #00ffcc;
+        text-shadow: 0 0 10px #00ffcc;
+        margin-bottom: 40px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .skills-container {
+        display: flex; /* Stack flyers vertically */
+        gap: 18px; /* Reduce gap between flyers */
+        align-items: center; /* Center flyers horizontally */
     }
 
     .skill-flyer {
-        padding: 15px;
+        width: 120%; /* Make flyers take full width */
+        max-width: 300px; /* Limit maximum width for better readability */
+        padding: 10px;
+        background-color: #34495e;
+        border-radius: 5px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skill-flyer img {
+        max-width: 100%; /* Ensure images fit within the flyer */
+        height: auto;
+        border-radius: 5px;
     }
 }
 
