@@ -6,11 +6,10 @@
         <title>Sketchpressotech Portfolio</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/three@0.146/build/three.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/three@0.146/examples/js/loaders/GLTFLoader.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> <!-- Only one Three.js import -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
         <script type="text/javascript">
             (function(){
                 emailjs.init({
@@ -19,6 +18,154 @@
             })();
         </script>
     </head>
+   <style>
+
+            @font-face {
+                font-family: 'Mokoto Glitch 1';
+                src: url('fonts/MokotoGlitch1.ttf') format('truetype');
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            /* Card Styling */
+            .box {
+            background-image: url('your-image-url.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            text-align: center;
+            color: white;
+            width: 50%; /* Adjusted width for better spacing */
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Heading and Paragraph Styling */
+        .box h1 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .box p {
+            font-size: 1em;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        /* Resizable HR Styling */
+        .box hr {
+            border: none;
+            height: 2px;
+            background-color: rgb(35, 224, 193);
+            margin: 10px 0;
+            width: 100%; /* Full width by default */
+            resize: horizontal; /* Allow horizontal resizing */
+            overflow: auto; /* Enable resizing */
+        }
+
+        /* Services Container */
+        .services {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        /* Service Item Styling */
+        .service-item {
+            text-align: center;
+            margin: 10px;
+            position: relative;
+        }
+
+        .service-item span {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: white;
+        }
+
+        /* Cost Styling (Oval Shape) */
+        .price {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            padding: 10px 20px;
+            border-radius: 50px; /* Oval shape */
+            font-size: 1.2em;
+            color: #007BFF;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-table {
+            background-color: #2c3e50;
+            background-size: cover;
+            background-position: center;
+            width: 55%; /* Adjust the width as needed */
+            max-width: 800px;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(221, 216, 216, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-table p {
+            color: rgb(15, 15, 15);
+            text-align: center;
+        }
+
+        .service-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .service-table th, .service-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .service-table th {
+            font-family: 'Mokoto Glitch 1';
+            font-weight: bold;
+            color: #000;
+            font-size: 30px;
+        }
+
+        .service-table td {
+            color: #fff;
+        }
+
+        .service-table td.cost {
+            font-weight: bold;
+            color: #007BFF;
+            border-left: 2px solid #007BFF; /* Vertical line */
+        }
+
+        .service-table .note {
+            font-size: 0.9em;
+            color: #777;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .service-table ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .service-table ul li {
+            margin-bottom: 5px;
+        }
+
+
+        </style>
+</head>
 <body>
     <header>
         <div class="logo">
@@ -42,72 +189,148 @@
     </header>
 
     <section id="home" class="hero">
-        <!-- 3D Animation Container -->
         <div id="animation-container">
-            <div id="3d-animation"></div>
             <div id="particle-animation"></div>
         </div>
         <div class="hero-content">
             <h1>Welcome to Sketchpressotech</h1>
             <p>Discover my art and tech skills</p>
         </div>
-
+        <div id="sun"></div> <!-- Sun placed here -->
     </section>
-     
-
+    
     <section id="about" class="about">
-        <!-- Add this inside the about section -->
-        <canvas id="about-particles"></canvas>
-        <h2>About Me</h2>
-        <p>Hi, I'm Nhlanhla Moyo, the founder and operator of Sketchpressotech, a unique blend of tech genius, IT freelancing, and cyber enthusiasm. I specialize in computer troubleshooting, web development, and various other IT services. When I'm not diving into tech issues, I enjoy creating art using graphite and charcoal pencils. This creative outlet complements my technical skills, and allows me to assist clients with both their technological and artistic needs, making tech more accessible and less daunting for everyone.</p>
-        <div class="resume-options">
-          <a href="_MyCV.pdf" target="_blank">
-            <img src="me.jpg" alt="Your Photo">
-          </a>
-          <div class="resume-buttons">
-            <a href="_MyCV.pdf" target="_blank" class="button">View My Resume</a>
-            <a href="#contact" class="button">Contact Me for a Cool Website</a>
-            <a href="#contact" class="button">Get an Art of Yourself/Fam</a>
-          </div>
+        <div class="about-container">
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>Hi, I'm Nhlanhla Moyo, the founder and operator of Sketchpressotech, a unique blend of tech genius, IT freelancing, and cyber enthusiasm. I specialize in computer troubleshooting, web development, and various other IT services. When I'm not diving into tech issues, I enjoy creating art using graphite and charcoal pencils. This creative outlet complements my technical skills, and allows me to assist clients with both their technological and artistic needs, making tech more accessible and less daunting for everyone.</p>
+            </div>
+            <div class="about-image">
+                <div class="cube-container">
+                    <div class="cube-row">
+                        <div class="cube" style="--x: 0; --y: 0;"></div>
+                        <div class="cube" style="--x: 1; --y: 0;"></div>
+                        <div class="cube" style="--x: 2; --y: 0;"></div>
+                    </div>
+                    <div class="cube-row">
+                        <div class="cube" style="--x: 0; --y: 1;"></div>
+                        <div class="cube" style="--x: 1; --y: 1;"></div>
+                        <div class="cube" style="--x: 2; --y: 1;"></div>
+                    </div>
+                    <div class="cube-row">
+                        <div class="cube" style="--x: 0; --y: 2;"></div>
+                        <div class="cube" style="--x: 1; --y: 2;"></div>
+                        <div class="cube" style="--x: 2; --y: 2;"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
-      
+        <div class="resume-options">
+            <div class="resume-buttons">
+                <a href="_MyCV.pdf" target="_blank" class="button">View My Resume</a>
+                <a href="#contact" class="button">Contact Me for a Cool Website</a>
+                <a href="#contact" class="button">Get an Art of Yourself/Fam</a>
+            </div>
+        </div>
+    </section>
 
     <section id="art" class="portfolio">
-    <h2>Portraits</h2>
-    <div class="gallery" id="portrait-gallery"></div>
-
-    <h2>Sketches</h2>
-    <div class="gallery" id="sketch-gallery"></div>
-
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox">
-        <span class="close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
-        <div class="caption" id="lightbox-caption"></div>
-    </div>
-</section>
-
-<section id="skills" class="skills">
-    <h2>My Skills & Services</h2>
-    <div class="skills-container">
-        <!-- PC Repair Flyer (Left) -->
-        <div class="skill-flyer left-flyer">
-            <img src="My Flyer.jpg" alt="PC Repair Services">
+        <h2>Portraits</h2>
+        <div class="gallery" id="portrait-gallery"></div>
+        <h2>Sketches</h2>
+        <div class="gallery" id="sketch-gallery"></div>
+        <div id="lightbox" class="lightbox">
+            <span class="close">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+            <div class="caption" id="lightbox-caption"></div>
         </div>
-
-        <!-- Coding Skills Flyer (Right) -->
-        <div class="skill-flyer right-flyer">
-            <img src="My Flyer1.jpg" alt="Coding Skills & Pricing">
+    </section>
+   
+    <section id="skills" class="skills">
+        
+        <h2>My Skills & Services</h2>
+        <center>
+        <div class="service-table">
+            <p>Keeping Your Computer in Peak Condition</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Services</th>
+                        <th>Pricing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong>INSTALLATIONS</strong>
+                            <ul>
+                                <li>Installing Windows 8/10/11</li>
+                                <li>Switching from macOS to Windows (vice versa)</li>
+                                <li>Installing Kali LINUX</li>
+                            </ul>
+                        </td>
+                        <td class="cost">
+                            R300 / R400 / R500<br>
+                            R500<br>
+                            R300
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>PC PROBLEMS</strong>
+                            <ul>
+                                <li>Slow performance -> R600</li>
+                                <li>Blue Screen of Death (e.g., Your PC ran into a problem...)</li>
+                            </ul>
+                        </td>
+                        <td class="cost">
+                            R600 (Prices may vary depending on your PC)<br>
+                            150
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>UNKNOWN ISSUES</strong>
+                            <ul>
+                                <li>Send me an Email or WhatsApp on the number provided -> To Be Discussed</li>
+                            </ul>
+                        </td>
+                        <td class="cost">
+                            To Be Discussed
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+       
+    <!-- Card with Oval Layout -->
+    <div class="box">
+        <h1>Need a Professional Website?</h1>
+        <p>We've got you covered</p>
+        <hr>
+        <div class="services">
+            <div class="service-item">
+                <span>1-2 pages</span>
+                <div class="price">R2000</div>
+            </div>
+            <div class="service-item">
+                <span>3-4 pages</span>
+                <div class="price">R3500</div>
+            </div>
+            <div class="service-item" style="justify-content: flex-end;">
+                <span>5+ pages e-commerce</span>
+                <div class="price">R5000</div>
+            </div>
         </div>
     </div>
-</section>
-
+    </center>
+    </section>
+    
     <section id="social" class="social-media">
         <h2>Let's Connect!</h2>
         <p>Follow me on social media to stay updated with my latest projects, art, and tech adventures.</p>
         <div class="social-links">
-            <a href="https://wa.me/+27610562911" target="_blank" class="social-link">
+            <a href="https://wa.me/+27848422545" target="_blank" class="social-link">
                 <i class="fab fa-whatsapp"></i>
                 <span>WhatsApp</span>
             </a>
@@ -126,7 +349,6 @@
         </div>
     </section>
 
-
     <section id="contact" class="contact">
         <h2>Contact Me</h2>
         <form id="contact-form">
@@ -141,13 +363,12 @@
     </section>
 
     <footer>
-        <p>© 2024 Sketchpressotech. All rights reserved.</p>
+        <p>© 2024 Sketchpressotech. All rights reserved. <aside style="color: black;">Designed by:</aside><a href="https://sketchpressotech-website-portfolio.onrender.com"> Sketchpressotech</a></p>
         <div id="whatsapp-float">
-            <a href="https://wa.me/+27610562911" target="_blank">
+            <a href="https://wa.me/+27848422545" target="_blank">
                 <img src="whatsapp-icon.png" alt="WhatsApp">
             </a>
         </div>
-        <a href="#" id="scrollToTop" class="scroll-to-top">&#8593;</a>
     </footer>
 
     <script src="script.js"></script>
