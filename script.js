@@ -17,44 +17,58 @@ document.querySelectorAll('input, textarea').forEach(element => {
         element.style.boxShadow = 'none';
     });
 });
+
 // Dynamic Content Loading
-const portraitGallery = document.getElementById('portrait-gallery');
-const sketchGallery = document.getElementById('sketch-gallery');
+document.addEventListener('DOMContentLoaded', () => {
+    const portraitGallery = document.getElementById('portrait-gallery');
+    const sketchGallery = document.getElementById('sketch-gallery');
 
-if (portraitGallery && sketchGallery) {
-const portraits = [
-    { src: 'Images/Portraites/Art1.jpg', alt: 'Art 1' },
-    { src: 'Images/Portraites/Art2.jpg', alt: 'Art 2' },
-    { src: 'Images/Portraites/Art3.jpg', alt: 'Art 3' },
-    { src: 'Images/Portraites/art4.jpg', alt: 'Art 4' },
-];
-    const sketches = [
-        { src: 'Images/Sketches/Sketch1.jpg', alt: 'Sketch 1' },
-        { src: 'Images/Sketches/Sketch2.jpg', alt: 'Sketch 2' },
-        { src: 'Images/Sketches/Sketch3.jpg', alt: 'Sketch 3' },
-        { src: 'Images/Sketches/Sketch4.jpg', alt: 'Sketch 4' },
-    ];
+    if (portraitGallery && sketchGallery) {
+        const portraits = [
+            { src: 'Images/Portraites/Art1.jpg', alt: 'Art 1', price: '$150', description: 'A stunning portrait capturing the essence of the subject.' },
+            { src: 'Images/Portraites/Art2.jpg', alt: 'Art 2', price: '$200', description: 'A vibrant and colorful portrait with intricate details.' },
+            { src: 'Images/Portraites/Art3.jpg', alt: 'Art 3', price: '$180', description: 'A classic black and white portrait with a timeless feel.' },
+            { src: 'Images/Portraites/art4.jpg', alt: 'Art 4', price: '$250', description: 'A modern portrait with a unique artistic style.' },
+        ];
 
-    // Load Portraits
-    portraits.forEach(art => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `<img src="${art.src}" alt="${art.alt}">`;
-        card.addEventListener('click', () => openLightbox(art.src, art.alt));
-        portraitGallery.appendChild(card);
-    });
+        const sketches = [
+            { src: 'Images/Sketches/Sketch1.jpg', alt: 'Sketch 1', price: '$100', description: 'A detailed pencil sketch showcasing fine lines and shading.' },
+            { src: 'Images/Sketches/Sketch2.jpg', alt: 'Sketch 2', price: '$120', description: 'A dynamic sketch with bold strokes and expressive forms.' },
+            { src: 'Images/Sketches/Sketch3.jpg', alt: 'Sketch 3', price: '$90', description: 'A minimalist sketch with a focus on simplicity and elegance.' },
+            { src: 'Images/Sketches/Sketch5.jpg', alt: 'Sketch 5', price: '$110', description: 'A creative sketch blending realism and abstract elements.' },
+        ];
 
-    // Load Sketches
-    sketches.forEach(sketch => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `<img src="${sketch.src}" alt="${sketch.alt}">`;
-        card.addEventListener('click', () => openLightbox(sketch.src, sketch.alt));
-        sketchGallery.appendChild(card);
-    });
-} else {
-    console.error('Portrait or Sketch gallery element not found.');
-}
+        // Load Portraits
+        portraits.forEach(art => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <img src="${art.src}" alt="${art.alt}">
+                <div class="details">
+                    <p class="description">${art.description}</p>
+                    <p class="price">${art.price}</p>
+                </div>
+            `;
+            portraitGallery.appendChild(card);
+        });
+
+        // Load Sketches
+        sketches.forEach(sketch => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <img src="${sketch.src}" alt="${sketch.alt}">
+                <div class="details">
+                    <p class="description">${sketch.description}</p>
+                    <p class="price">${sketch.price}</p>
+                </div>
+            `;
+            sketchGallery.appendChild(card);
+        });
+    } else {
+        console.error('Portrait or Sketch gallery element not found.');
+    }
+});
 
 // Lightbox Functionality
 const lightbox = document.getElementById('lightbox');
@@ -77,6 +91,7 @@ lightbox.addEventListener('click', (e) => {
         lightbox.style.display = 'none';
     }
 });
+
 // Form Submission
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
@@ -98,10 +113,11 @@ if (contactForm) {
 }
 
 // Three.js Particle Animation
+let particleCamera; // Declare particleCamera in the global scope
 const particleCanvas = document.getElementById('particle-animation');
 if (particleCanvas) {
     const particleScene = new THREE.Scene();
-    const particleCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    particleCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000); // Assign to global variable
     const particleRenderer = new THREE.WebGLRenderer({ alpha: true });
     particleRenderer.setSize(window.innerWidth, window.innerHeight);
     particleCanvas.appendChild(particleRenderer.domElement);
@@ -151,10 +167,11 @@ if (particleCanvas) {
 }
 
 // Three.js 3D Cube Animation
+let cubeCamera; // Declare cubeCamera in the global scope
 const cubeCanvas = document.getElementById('3d-animation');
 if (cubeCanvas) {
     const cubeScene = new THREE.Scene();
-    const cubeCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    cubeCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000); // Assign to global variable
     const cubeRenderer = new THREE.WebGLRenderer({ alpha: true });
     cubeRenderer.setSize(window.innerWidth, window.innerHeight);
     cubeCanvas.appendChild(cubeRenderer.domElement);
@@ -175,8 +192,6 @@ if (cubeCanvas) {
         cubeRenderer.render(cubeScene, cubeCamera);
     }
     animateCube();
-} else {
-    console.error('3D animation canvas element not found.');
 }
 
 // Handle window resize for both animations
@@ -206,13 +221,10 @@ function toggleMenu() {
 
     if (navLinks && burger) {
         navLinks.classList.toggle('active');
-
-        // Animate burger icon
         burger.classList.toggle('toggle');
     } else {
         console.error('Navigation links or burger element not found.');
     }
-    toggleMenu();
 }
 
 // Add Event Listener to Burger Icon
@@ -290,6 +302,4 @@ if (aboutParticlesCanvas) {
         aboutParticlesCanvas.height = document.querySelector('.about').offsetHeight;
         init();
     });
-} else {
-    console.error('About particles canvas element not found.');
 }
