@@ -1,10 +1,18 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background: linear-gradient(180deg, #1a1a1a, #000); /* Initial gradient */
+    transition: background 0.5s ease; /* Smooth transition */
 }
-/* Header with 3D Animation */
+
+/* Add this to ensure sections have a transparent background */
+section {
+    background-color: transparent;
+}
+
 header {
     position: fixed;
     top: 0;
@@ -12,23 +20,14 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em 2em; /* Add padding to the sides */
+    padding: 1em 2em;
     background: transparent;
     z-index: 1000;
 }
 
-#3d-animation, #particle-animation {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; /* Cover the entire header */
-    z-index: -1100; /* Ensure it stays behind the header content */
-    pointer-events: none; /* Make it non-interactive */
-        
-}
 
-/* Hero Section */
+
+
 .hero {
     position: relative;
     height: 100vh;
@@ -38,16 +37,11 @@ header {
     justify-content: center;
     overflow: hidden;
     background: linear-gradient(135deg, #1a1a1a, #000);
-}
-
-#particle-animation {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     z-index: 1;
 }
+
+
+
 
 
 .hero-content {
@@ -55,8 +49,10 @@ header {
     z-index: 2;
     text-align: center;
     color: #fff;
-    padding-top: 20%; /* Adjust as needed */
+    padding-top: 20%;
 }
+
+
 
 
 #animation-container {
@@ -65,7 +61,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Ensures the animation is behind the content */
+    z-index: -1; /* Ensures the animation is behind the content */
 }
 
 
@@ -85,7 +81,6 @@ header {
 }
 
 
-/* Keyframes for animations */
 @keyframes float {
     0%, 100% {
         transform: translateY(0);
@@ -95,6 +90,8 @@ header {
     }
 }
 
+
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -104,8 +101,8 @@ header {
     }
 }
 
-/* Keyframes for animations */
-@keyframes glow {
+/* Keyframes for text glow animation */
+@keyframes text-glow {
     from {
         text-shadow: 0 0 15px #6b8e23, 0 0 30px #556b2f, 0 0 45px #2e8b57, 0 0 60px #3cb371, 0 0 75px #8fbc8f, 0 0 90px #20b2aa, 0 0 105px #87ceeb;
     }
@@ -114,6 +111,7 @@ header {
     }
 }
 
+/* Keyframes for fade-in animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -123,33 +121,47 @@ header {
     }
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
+/* Sun Glow Effect */
+#sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #ffd700, #ff8c00);
+    border-radius: 50%;
+    box-shadow: 0 0 100px 50px rgba(255, 140, 0, 0.5),
+                0 0 200px 100px rgba(255, 215, 0, 0.3);
+    animation: sun-glow 2s infinite alternate; /* Updated animation name */
+    transform: translate(-50%, -50%) scale(0.5);
+    z-index: 0;
+}
 
-    #3d-animation, #particle-animation {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%; /* Cover the entire header */
-        z-index: -1100; /* Ensure it stays behind the header content */
-        pointer-events: none; /* Make it non-interactive */
-            
+/* Keyframes for sun glow animation */
+@keyframes sun-glow {
+    0% {
+        box-shadow: 0 0 50px 20px rgba(255, 140, 0, 0.5),
+                    0 0 100px 50px rgba(255, 215, 0, 0.3);
     }
+    100% {
+        box-shadow: 0 0 70px 30px rgba(255, 140, 0, 0.7),
+                    0 0 120px 60px rgba(255, 215, 0, 0.5);
+    }
+}
+@media (max-width: 768px) {
     .hero h1 {
         font-size: 20px;
     }
-
-
     .hero p {
         font-size: 1.2em;
     }
-
     .hero button {
         font-size: 0.8em;
         padding: 0.5em 1em;
     }
 }
+
+
 
 
 .logo img {
@@ -257,20 +269,20 @@ nav ul li a:hover {
         display: block;
     }
 }
-/*Section for home page CSS */
 
 
-/* Section for Art*/
 .portfolio, .skills, .social-media, .about, .contact {
     padding: 50px 20px;
     text-align: center;
-    
 }
+
 .portfolio {
     padding: 50px 20px;
     text-align: center;
     background-color: #1a252f;
 }
+
+
 
 .gallery {
     display: flex;
@@ -279,31 +291,58 @@ nav ul li a:hover {
     flex-wrap: wrap;
 }
 
+/* Gallery Styles */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Card Styles */
 .card {
-    background-color: #1e1e1e;
-    border: 2px solid #00ffcc;
+    width: 300px;
+    background: #fff;
     border-radius: 10px;
-    padding: 10px;
-    width: 250px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease;
 }
 
 .card img {
-    width: 70%;
-    border-radius: 10px;
+    width: 100%;
+    height: 200px; /* Adjust as needed */
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
 }
 
+.card .details {
+    padding: 15px;
+    text-align: center;
+}
+
+.card .description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.card .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Optional: Hover Effect */
 .card:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px #00ff99;
 }
-
-/* Mobile Styles */
 @media (max-width: 768px) {
     .gallery {
         justify-content: center;
     }
-
     .card {
         flex: 0 0 45%;
         max-width: 25%;
@@ -314,113 +353,142 @@ nav ul li a:hover {
 
 /* Section for my skills */
 .skills {
-    padding: 50px 20px;
+    padding: 30px 15px; /* Reduced padding for smaller screens */
     text-align: center;
     background-color: #2c3e50;
 }
 
 .skills h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+    font-size: 2rem; /* Smaller font size for mobile */
+    margin-bottom: 20px; /* Reduced margin for tighter spacing */
     color: #ecf0f1;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px; /* Reduced letter spacing for mobile */
 }
 
-.skills-container {
-    display: flex;
-    justify-content: space-between; /* Space the two flyers to the edges */
-    align-items: center; /* Align items vertically in the center */
-    gap: 100px; /* Add some gap between the flyers */
-    max-width: 1000px;
+.service-table {
+    margin-bottom: 30px; /* Space between the table and the card */
+}
+
+.service-table p {
+    font-size: 1.1rem; /* Smaller font size for mobile */
+    color: #ecf0f1;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: #34495e;
+    color: #ecf0f1;
+}
+
+table th, table td {
+    padding: 15px; /* Reduced padding for smaller screens */
+    border: 1px solid #4a6a7d;
+    text-align: left;
+}
+
+table th {
+    background-color: #1abc9c;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+table td ul {
+    margin: 0;
+    padding-left: 20px; /* Adjusted padding for mobile */
+}
+
+table td ul li {
+    list-style-type: disc;
+    margin-bottom: 5px; /* Reduced margin for tighter spacing */
+}
+
+.cost {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Card with Oval Layout */
+.box {
+    background-color: #34495e;
+    padding: 20px;
+    border-radius: 20px; /* Adjusted border radius for mobile */
+    color: #ecf0f1;
+    max-width: 500px;
     margin: 0 auto;
 }
 
-.skill-flyer {
-    width: 55%; /* Adjust the width as needed */
-    max-width: 800px;
-    padding: 10px;
-    background-color: #34495e;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.box h1 {
+    font-size: 1.5rem; /* Smaller font size for mobile */
+    margin-bottom: 10px;
 }
 
-.skill-flyer:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+.box p {
+    font-size: 1rem; /* Smaller font size for mobile */
+    margin-bottom: 15px;
 }
 
-.skill-flyer img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
+.box hr {
+    border: 1px solid #4a6a7d;
+    margin: 15px 0;
 }
 
-/* Special styling for the left flyer */
-.left-flyer {
-    margin-right: auto; /* Push the left flyer to the left */
+.services {
+    display: flex;
+    flex-direction: column; /* Stack items vertically on mobile */
+    gap: 10px; /* Smaller gap for stacked items */
 }
 
-/* Special styling for the right flyer */
-.right-flyer {
-    margin-left: auto; /* Push the right flyer to the right */
+.service-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem; /* Smaller font size for mobile */
 }
 
-/* Special styling for the coding skills flyer */
-.coding-flyer {
-    background-image: url('programming-1857236_1280.jpg'); /* Add a coding-themed background image */
-    background-size: cover;
-    background-position: center;
-    border: 2px solid #00ff99;
-    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 75%, transparent);
-    background-size: 40px 40px;
-    animation: moveCode 10s linear infinite;
+.service-item .price {
+    font-weight: bold;
+    color: #1abc9c;
 }
 
-.coding-flyer img {
-    mix-blend-mode: multiply; /* Blend the flyer with the background */
-}
-
-/* Mobile Styles */
+/* Responsive Design for Mobile */
 @media (max-width: 768px) {
+    .skills {
+        padding: 20px 10px; /* Even smaller padding for very small screens */
+    }
+
     .skills h2 {
-        font-size: 2rem;
-        color: #00ffcc;
-        text-shadow: 0 0 10px #00ffcc;
-        margin-bottom: 40px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
+        font-size: 1.8rem; /* Smaller font size for very small screens */
+        letter-spacing: 0.5px; /* Further reduced letter spacing */
     }
 
-    .skills-container {
-        display: flex; /* Stack flyers vertically */
-        gap: 18px; /* Reduce gap between flyers */
-        align-items: center; /* Center flyers horizontally */
+    .service-table p {
+        font-size: 1rem; /* Smaller font size for very small screens */
     }
 
-    .skill-flyer {
-        width: 120%; /* Make flyers take full width */
-        max-width: 300px; /* Limit maximum width for better readability */
-        padding: 10px;
-        background-color: #34495e;
-        border-radius: 5px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    table th, table td {
+        padding: 10px; /* Further reduced padding for very small screens */
     }
 
-    .skill-flyer img {
-        max-width: 100%; /* Ensure images fit within the flyer */
-        height: auto;
-        border-radius: 5px;
+    .box {
+        padding: 15px; /* Reduced padding for very small screens */
+    }
+
+    .box h1 {
+        font-size: 1.3rem; /* Smaller font size for very small screens */
+    }
+
+    .box p {
+        font-size: 0.9rem; /* Smaller font size for very small screens */
+    }
+
+    .service-item {
+        font-size: 0.9rem; /* Smaller font size for very small screens */
     }
 }
-
-@keyframes moveCode {
-    0% { background-position: 0 0; }
-    100% { background-position: 100% 100%; }
-}
-
 
 
 /* Social Media Section */
@@ -529,172 +597,122 @@ nav ul li a:hover {
     }
 }
 
-/*About Section*/
+
+/* About Section Styling */
+/* About Section Styling */
 .about {
-    padding: 50px 20px;
-    text-align: center;
+    position: relative;
+    padding: 30px 15px; /* Reduced padding for mobile */
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
     border: 1px solid #00ffcc;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+    margin: 10px;
+    z-index: 1; /* Ensure it's above the hero section */
+}
+
+.about-content {
+    flex: 2;
+    opacity: 1; /* Ensure content is visible */
+    transform: translateX(0); /* Reset any transformations */
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+.about-content h2 {
+    font-size: 28px; /* Reduced font size for mobile */
+    color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc;
+    animation: glow 2s infinite alternate;
+    text-align: center; /* Center align heading */
+}
+
+.about-content p {
+    font-size: 16px; /* Reduced font size for mobile */
+    color: #fff;
+    margin: 15px 0; /* Adjusted margin for mobile */
+    text-align: center; /* Center align paragraph */
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column; /* Stack content vertically on mobile */
+    align-items: center;
+    gap: 20px; /* Reduced gap for mobile */
+    max-width: 100%; /* Full width on mobile */
+    margin: 0 auto;
+}
+
+.about-image {
+    flex: 1;
     position: relative;
     overflow: hidden;
-    animation: float 5s infinite ease-in-out;
-    margin: 20px;
+    border-radius: 15px;
+    perspective: 2000px; /* Enable 3D perspective */
+    width: 100%; /* Full width on mobile */
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-.about::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, rgba(0, 255, 204, 0.1), rgba(0, 255, 153, 0.1), rgba(0, 255, 204, 0.1));
-    animation: gradientShift 10s linear infinite;
-    z-index: -1;
-}
-
-@keyframes gradientShift {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.resume-options {
+.cube-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 0px;
 }
 
-.resume-options a img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 2px solid #00ffcc;
-    box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
-    transition: transform 0.3s, box-shadow 0.3s;
+.cube-row {
+    display: flex;
+    gap: 0px;
+    justify-content: center; /* Center cubes horizontally */
 }
 
-.resume-options a img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 30px #00ff99;
+.cube {
+    width: 80px; /* Reduced cube size for mobile */
+    height: 80px; /* Reduced cube size for mobile */
+    background-image: url('me.jpg');
+    background-size: 240px 240px; /* Adjusted based on new cube size */
+    background-position: calc(-80px * var(--x)) calc(-80px * var(--y));
+    transform-style: preserve-3d;
+    transform: rotateY(90deg) rotateX(90deg);
+    opacity: 0;
+    animation: assemble 1.5s ease-out forwards;
+    animation-delay: calc(0.1s * (var(--x) + var(--y)));
+}
+
+@keyframes assemble {
+    0% {
+        transform: rotateY(90deg) rotateX(90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotateY(0) rotateX(0);
+        opacity: 1;
+    }
 }
 
 .resume-buttons {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
+    flex-direction: column; /* Stack buttons vertically on mobile */
+    gap: 20px; /* Adjusted gap for mobile */
+    align-items: center; /* Center buttons horizontally */
 }
 
 .button {
-    padding: 10px 20px;
+    padding: 8px 16px; /* Reduced padding for mobile */
     background-color: #00ffcc;
     color: #121212;
     text-decoration: none;
     border-radius: 5px;
     box-shadow: 0 0 10px #00ffcc;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    font-size: 16px;
+    font-size: 14px; /* Reduced font size for mobile */
     text-align: center;
+    width: 100%; /* Full width buttons on mobile */
+    max-width: 200px; /* Limit button width */
 }
 
 .button:hover {
     background-color: #00ff99;
     transform: scale(1.05);
     box-shadow: 0 0 20px #00ff99;
-}
-
-@keyframes glowButton {
-    0% {
-        box-shadow: 0 0 10px #00ffcc;
-    }
-    50% {
-        box-shadow: 0 0 20px #00ff99;
-    }
-    100% {
-        box-shadow: 0 0 10px #00ffcc;
-    }
-}
-.button:active {
-    transform: scale(0.95);
-}
-
-@media (max-width: 768px) {
-    .about h2 {
-        font-size: 28px;
-    }
-
-    .about p {
-        font-size: 16px;
-    }
-
-    .resume-options a img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .button {
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-}
-
-.about {
-    position: relative;
-    overflow: hidden;
-}
-
-#about-particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-}
-
-@media (max-width: 768px) {
-    .about h2 {
-        font-size: 28px;
-    }
-
-    .about p {
-        font-size: 16px;
-    }
-
-    .resume-options a img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .button {
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-}
-
-
-.about h2 {
-    font-size: 36px;
-    color: #00ffcc;
-    text-shadow: 0 0 10px #00ffcc;
-    animation: glow 2s infinite alternate;
 }
 
 @keyframes glow {
@@ -709,6 +727,7 @@ nav ul li a:hover {
     }
 }
 
+/* Contact Section Styling */
 .contact {
     padding: 50px 20px;
     text-align: center;
@@ -764,6 +783,8 @@ button:active {
     transform: scale(0.95);
 }
 
+/*Wahatsapp Floating Button*/
+
 #whatsapp-float {
     position: fixed;
     bottom: 20px;
@@ -784,40 +805,6 @@ button:active {
 #whatsapp-float img:hover {
     transform: scale(1.1);
 }
-
-.scroll-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #333;
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 20px;
-    cursor: pointer;
-    display: none;
-    z-index: 1000;
-}
-
-.scroll-to-top:hover {
-    background-color: #555;
-}
-
-
-footer {
-    background-color: #6d7c99;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-footer .social-icons a {
-    margin: 0 10px;
-    color: white;
-    text-decoration: none;
-}
-
 
 
 /* Futuristic Animations */
@@ -841,6 +828,8 @@ footer .social-icons a {
         box-shadow: 0 0 10px #00ffcc;
     }
 }
+
+
 /* Gallery Section */
 .portfolio {
     padding: 50px 20px;
@@ -872,7 +861,7 @@ footer .social-icons a {
     padding: 20px;
 }
 
-/* Gallery Card */
+
 /* Gallery Card */
 .card {
     position: relative;
@@ -900,6 +889,7 @@ footer .social-icons a {
 .card:hover img {
     transform: scale(1.1);
 }
+
 
 /* Lightbox Modal */
 .lightbox {
@@ -947,6 +937,9 @@ footer .social-icons a {
     color: #00ff99;
 }
 
+
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .gallery {
@@ -968,6 +961,7 @@ footer .social-icons a {
         font-size: 1rem;
     }
 }
+
 /* Interactive Form */
 form {
     max-width: 500px;
@@ -1024,24 +1018,16 @@ form button:hover {
     transform: scale(1.05);
 }
 
-/* Cartoon Character */
-.cartoon {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    width: 100px;
-    height: 100px;
-    background-image: url('cartoon.png'); /* Add your cartoon image */
-    background-size: cover;
-    transition: transform 0.5s ease-in-out;
+
+footer {
+    background-color: #6d7c99;
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
 
-/* Hover Effect on Nav Links */
-nav ul li:hover ~ #cartoon {
-    transform: translateX(-100%);
-}
-
-/* Scroll Down Effect */
-.hero.scrolled #cartoon {
-    transform: translateX(-100%);
+footer .social-icons a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
 }
