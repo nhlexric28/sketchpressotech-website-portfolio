@@ -17,80 +17,346 @@ document.querySelectorAll('input, textarea').forEach(element => {
         element.style.boxShadow = 'none';
     });
 });
+// Function to load gallery items for a specific page
+function loadGalleryPage(galleryElement, items, page, itemsPerPage) {
+    galleryElement.innerHTML = ''; // Clear the gallery
 
-// Dynamic Content Loading
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const pageItems = items.slice(startIndex, endIndex);
+
+    pageItems.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="${item.src}" alt="${item.alt}">
+                    <div class="learn-more">Learn More</div>
+                </div>
+                <div class="card-back">
+                    <h3>${item.title}</h3>
+                    <p>${item.description.replace(/\n/g, '<br>')}</p>
+                    <p class="price">${item.price}</p>
+                </div>
+            </div>
+        `;
+        card.addEventListener('click', () => {
+            card.classList.toggle('flipped');
+        });
+        galleryElement.appendChild(card);
+    });
+}
+
+// Function to initialize pagination
+function initializePagination(galleryElement, paginationElement, items, itemsPerPage) {
+    const pageButtons = paginationElement.querySelectorAll('.page-btn');
+    let currentPage = 1;
+
+    // Load the first page by default
+    loadGalleryPage(galleryElement, items, currentPage, itemsPerPage);
+    pageButtons[0].classList.add('active');
+
+    // Add click event listeners to pagination buttons
+    pageButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            currentPage = index + 1;
+            loadGalleryPage(galleryElement, items, currentPage, itemsPerPage);
+
+            // Update active button
+            pageButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        });
+    });
+}
+
+// Initialize Galleries with Pagination
 document.addEventListener('DOMContentLoaded', () => {
     const portraitGallery = document.getElementById('portrait-gallery');
     const sketchGallery = document.getElementById('sketch-gallery');
+    const portraitPagination = document.getElementById('portrait-pagination');
+    const sketchPagination = document.getElementById('sketch-pagination');
 
-    if (portraitGallery && sketchGallery) {
+    if (portraitGallery && sketchGallery && portraitPagination && sketchPagination) {
+        // Portrait Data
         const portraits = [
-            { src: 'Images/Portraites/Art1.jpg', alt: 'Art 1', price: '$150', description: 'A stunning portrait capturing the essence of the subject.' },
-            { src: 'Images/Portraites/Art2.jpg', alt: 'Art 2', price: '$200', description: 'A vibrant and colorful portrait with intricate details.' },
-            { src: 'Images/Portraites/Art3.jpg', alt: 'Art 3', price: '$180', description: 'A classic black and white portrait with a timeless feel.' },
-            { src: 'Images/Portraites/art4.jpg', alt: 'Art 4', price: '$250', description: 'A modern portrait with a unique artistic style.' },
+            {
+                src: 'Images/Portraites/Art1.jpg',
+                alt: 'Art 1',
+                title: 'Din avec la main dans le miroir et jupe rouge',
+                description: 'Editions: Edition of 50\nDimensions: 20 x 24in. (50.8 x 61cm)',
+                price: '$7,500.00 USD'
+            },
+            {
+                src: 'Images/Portraites/Art2.jpg',
+                alt: 'Art 2',
+                title: 'Another Artwork',
+                description: 'Editions: Edition of 100\nDimensions: 24 x 36in. (61 x 91.4cm)',
+                price: '$5,000.00 USD'
+            },
+            {
+                src: 'Images/Portraites/Art3.jpg',
+                alt: 'Art 3',
+                title: 'Third Artwork',
+                description: 'Editions: Edition of 75\nDimensions: 18 x 24in. (45.7 x 61cm)',
+                price: '$6,000.00 USD'
+            },
+            {
+                src: 'Images/Portraites/Art4.jpg',
+                alt: 'Art 4',
+                title: 'Fourth Artwork',
+                description: 'Editions: Edition of 50\nDimensions: 20 x 24in. (50.8 x 61cm)',
+                price: '$7,500.00 USD'
+            },
+            {
+                src: 'Images/Portraites/Art4.jpg',
+                alt: 'Art 4',
+                title: 'Fourth Artwork',
+                description: 'Editions: Edition of 50\nDimensions: 20 x 24in. (50.8 x 61cm)',
+                price: '$7,500.00 USD'
+            },
+            // Add more portraits as needed
         ];
 
+        // Sketch Data
         const sketches = [
-            { src: 'Images/Sketches/Sketch1.jpg', alt: 'Sketch 1', price: '$100', description: 'A detailed pencil sketch showcasing fine lines and shading.' },
-            { src: 'Images/Sketches/Sketch2.jpg', alt: 'Sketch 2', price: '$120', description: 'A dynamic sketch with bold strokes and expressive forms.' },
-            { src: 'Images/Sketches/Sketch3.jpg', alt: 'Sketch 3', price: '$90', description: 'A minimalist sketch with a focus on simplicity and elegance.' },
-            { src: 'Images/Sketches/Sketch5.jpg', alt: 'Sketch 5', price: '$110', description: 'A creative sketch blending realism and abstract elements.' },
+            {
+                src: 'Images/Sketches/Sketch1.jpg',
+                alt: 'Sketch 1',
+                title: 'Sketch Title',
+                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
+                price: 'R250.00 ZAR'
+            },
+            {
+                src: 'Images/Sketches/Sketch2.jpg',
+                alt: 'Sketch 2',
+                title: 'Sketch Title',
+                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
+                price: 'R250.00 ZAR'
+            },
+            {
+                src: 'Images/Sketches/Sketch3.jpg',
+                alt: 'Sketch 3',
+                title: 'Sketch Title',
+                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
+                price: 'R250.00 ZAR'
+            },
+            {
+                src: 'Images/Sketches/Sketch4.jpg',
+                alt: 'Sketch 4',
+                title: 'Sketch Title',
+                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
+                price: 'R250.00 ZAR'
+            },
+            {
+                src: 'Images/Sketches/Sketch5.jpg',
+                alt: 'Sketch 4',
+                title: 'Sketch Title',
+                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
+                price: 'R250.00 ZAR'
+            },
+            // Add more sketches as needed
         ];
 
-        // Load Portraits
-        portraits.forEach(art => {
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.innerHTML = `
-                <img src="${art.src}" alt="${art.alt}">
-                <div class="details">
-                    <p class="description">${art.description}</p>
-                    <p class="price">${art.price}</p>
-                </div>
-            `;
-            portraitGallery.appendChild(card);
-        });
-
-        // Load Sketches
-        sketches.forEach(sketch => {
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.innerHTML = `
-                <img src="${sketch.src}" alt="${sketch.alt}">
-                <div class="details">
-                    <p class="description">${sketch.description}</p>
-                    <p class="price">${sketch.price}</p>
-                </div>
-            `;
-            sketchGallery.appendChild(card);
-        });
+        // Initialize pagination for portraits and sketches
+        initializePagination(portraitGallery, portraitPagination, portraits, 4);
+        initializePagination(sketchGallery, sketchPagination, sketches, 4);
     } else {
-        console.error('Portrait or Sketch gallery element not found.');
+        console.error('Gallery or pagination elements not found.');
     }
 });
 
-// Lightbox Functionality
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const lightboxCaption = document.getElementById('lightbox-caption');
-const closeBtn = document.querySelector('.close');
+// Function to load gallery items for a specific page
+function loadGalleryPage(galleryElement, items, page, itemsPerPage) {
+    galleryElement.innerHTML = ''; // Clear the gallery
 
-function openLightbox(src, alt) {
-    lightbox.style.display = 'block';
-    lightboxImg.src = src;
-    lightboxCaption.textContent = alt;
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const pageItems = items.slice(startIndex, endIndex);
+
+    pageItems.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="${item.src}" alt="${item.alt}">
+                    <div class="learn-more">Learn More</div>
+                </div>
+                <div class="card-back">
+                    <h3>${item.title}</h3>
+                    <p>${item.description.replace(/\n/g, '<br>')}</p>
+                    <p class="price">${item.price}</p>
+                </div>
+            </div>
+        `;
+        card.addEventListener('click', () => {
+            card.classList.toggle('flipped');
+        });
+        galleryElement.appendChild(card);
+    });
 }
 
-closeBtn.addEventListener('click', () => {
-    lightbox.style.display = 'none';
-});
+// Function to initialize pagination
+function initializePagination(galleryElement, paginationElement, items, itemsPerPage) {
+    const pageButtons = paginationElement.querySelectorAll('.page-btn');
+    let currentPage = 1;
 
-lightbox.addEventListener('click', (e) => {
-    if (e.target !== lightboxImg && e.target !== lightboxCaption) {
-        lightbox.style.display = 'none';
+    // Load the first page by default
+    loadGalleryPage(galleryElement, items, currentPage, itemsPerPage);
+    pageButtons[0].classList.add('active');
+
+    // Add click event listeners to pagination buttons
+    pageButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            currentPage = index + 1;
+            loadGalleryPage(galleryElement, items, currentPage, itemsPerPage);
+
+            // Update active button
+            pageButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        });
+    });
+}
+
+// Initialize Galleries with Pagination
+document.addEventListener('DOMContentLoaded', () => {
+    const portraitGallery = document.getElementById('portrait-gallery');
+    const sketchGallery = document.getElementById('sketch-gallery');
+    const portraitPagination = document.getElementById('portrait-pagination');
+    const sketchPagination = document.getElementById('sketch-pagination');
+
+    if (portraitGallery && sketchGallery && portraitPagination && sketchPagination) {
+        // Portrait Data
+        const portraits = [
+            {
+                src: 'Images/Portraites/Art1.jpg',
+                alt: 'Art 1',
+                title: 'Din avec la main dans le miroir et jupe rouge',
+                description: 'Editions: Edition of 50\nDimensions: 20 x 24in. (50.8 x 61cm)',
+                price: '$7,500.00 USD'
+            },
+            {
+                src: 'Images/Portraites/Art2.jpg',
+                alt: 'Art 2',
+                title: 'Another Artwork',
+                description: 'Editions: Edition of 100\nDimensions: 24 x 36in. (61 x 91.4cm)',
+                price: '$5,000.00 USD'
+            },
+            {
+                src: 'Images/Portraites/Art3.jpg',
+                alt: 'Art 3',
+                title: 'Third Artwork',
+                description: 'Editions: Edition of 75\nDimensions: 18 x 24in. (45.7 x 61cm)',
+                price: '$6,000.00 USD'
+            },
+            {
+                src: 'Images/Portraites/art4.jpg',
+                alt: 'Art 4',
+                title: 'Fourth Artwork',
+                description: 'Editions: Edition of 50\nDimensions: 20 x 24in. (50.8 x 61cm)',
+                price: '$7,500.00 USD'
+            },
+            {
+                src: 'Images/Portraites/Art5.jpg',
+                alt: 'Art 5',
+                title: 'Third Artwork',
+                description: 'Editions: Edition of 75\nDimensions: 18 x 24in. (45.7 x 61cm)',
+                price: '$6,000.00 USD'
+            },
+            {
+                src: 'Images/Portraites/Art6.jpg',
+                alt: 'Art 6',
+                title: 'Fourth Artwork',
+                description: 'Editions: Edition of 50\nDimensions: 20 x 24in. (50.8 x 61cm)',
+                price: '$7,500.00 USD'
+            },
+            {
+                src: 'Images/Portraites/Art7.jpg',
+                alt: 'Art 7',
+                title: 'Third Artwork',
+                description: 'Editions: Edition of 75\nDimensions: 18 x 24in. (45.7 x 61cm)',
+                price: '$6,000.00 USD'
+            },
+            {
+                src: 'Images/Portraites/Art8.jpg',
+                alt: 'Art 8',
+                title: 'Fourth Artwork',
+                description: 'Editions: Edition of 50\nDimensions: 20 x 24in. (50.8 x 61cm)',
+                price: '$7,500.00 USD'
+            },
+            // Add more portraits as needed
+        ];
+
+        // Sketch Data
+        const sketches = [
+            {
+                src: 'Images/Sketches/Sketch1.jpg',
+                alt: 'Sketch 1',
+                title: 'Sketch Title',
+                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
+                price: 'R250.00 ZAR'
+            },
+            {
+                src: 'Images/Sketches/Sketch2.jpg',
+                alt: 'Sketch 2',
+                title: 'Sketch Title',
+                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
+                price: 'R250.00 ZAR'
+            },
+            {
+                src: 'Images/Sketches/Sketch3.jpg',
+                alt: 'Sketch 3',
+                title: 'Sketch Title',
+                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
+                price: 'R250.00 ZAR'
+            },
+            {
+                src: 'Images/Sketches/Sketch4.jpg',
+                alt: 'Sketch 4',
+                title: 'Sketch Title',
+                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
+                price: 'R250.00 ZAR'
+            },
+            {
+                src: 'Images/Sketches/Sketch5.jpg',
+                alt: 'Sketch 5',
+                title: 'Sketch Title',
+                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
+                price: 'R250.00 ZAR'
+            },
+            {
+                src: 'Images/Sketches/Sketch6.jpg',
+                alt: 'Sketch 6',
+                title: 'Setting The Captives Free',
+                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
+                price: 'R250.00 ZAR'
+            },
+            {
+                src: 'Images/Sketches/Sketch7.jpg',
+                alt: 'Sketch 7',
+                title: 'Sketch Title',
+                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
+                price: 'R250.00 ZAR'
+            },
+            {
+                src: 'Images/Sketches/Sketch8.jpg',
+                alt: 'Sketch 8',
+                title: 'Sketch Title',
+                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
+                price: 'R250.00 ZAR'
+            },
+            // Add more sketches as needed
+        ];
+
+        // Initialize pagination for portraits and sketches
+        initializePagination(portraitGallery, portraitPagination, portraits, 2);
+        initializePagination(sketchGallery, sketchPagination, sketches, 2);
+    } else {
+        console.error('Gallery or pagination elements not found.');
     }
 });
+
 
 // Form Submission
 const contactForm = document.getElementById('contact-form');
@@ -105,7 +371,7 @@ if (contactForm) {
                 this.reset();
             }, (error) => {
                 console.error('Failed to send message:', error);
-                alert('Something went wrong. Please try again.');
+                alert('Something went wrong. Please try again. Error: ' + error.text);
             });
     });
 } else {
@@ -235,71 +501,36 @@ if (burger) {
     console.error('Burger element not found.');
 }
 
-// JavaScript for Particle Animation
-const aboutParticlesCanvas = document.getElementById('about-particles');
-if (aboutParticlesCanvas) {
-    const ctx = aboutParticlesCanvas.getContext('2d');
-    aboutParticlesCanvas.width = window.innerWidth;
-    aboutParticlesCanvas.height = document.querySelector('.about').offsetHeight;
+// Function to handle the fixed background and fade-out effect
+function handleFixedBackground() {
+    const aboutSection = document.querySelector('.about');
+    const aboutBackground = document.querySelector('.about-background');
+    const gallerySection = document.querySelector('.portfolio');
 
-    let particles = [];
+    if (aboutSection && aboutBackground && gallerySection) {
+        const aboutHeight = aboutSection.offsetHeight;
+        const galleryOffset = gallerySection.offsetTop;
 
-    class Particle {
-        constructor(x, y, size, color, velocity) {
-            this.x = x;
-            this.y = y;
-            this.size = size;
-            this.color = color;
-            this.velocity = velocity;
-        }
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
 
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = this.color;
-            ctx.fill();
-        }
+            // Calculate opacity based on scroll position
+            const opacity = 1 - (scrollPosition / aboutHeight);
 
-        update() {
-            this.x += this.velocity.x;
-            this.y += this.velocity.y;
-            if (this.size > 0.2) this.size -= 0.1;
-        }
-    }
+            // Ensure opacity stays between 0 and 1
+            aboutBackground.style.opacity = Math.max(0, Math.min(1, opacity));
 
-    function init() {
-        particles = [];
-        for (let i = 0; i < 50; i++) {
-            const size = Math.random() * 2 + 1;
-            const x = Math.random() * aboutParticlesCanvas.width;
-            const y = Math.random() * aboutParticlesCanvas.height;
-            const color = '#00ffcc';
-            const velocity = {
-                x: (Math.random() - 0.5) * 0.5,
-                y: (Math.random() - 0.5) * 0.5
-            };
-            particles.push(new Particle(x, y, size, color, velocity));
-        }
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, aboutParticlesCanvas.width, aboutParticlesCanvas.height);
-        particles.forEach((particle, index) => {
-            particle.draw();
-            particle.update();
-            if (particle.size <= 0.2) {
-                particles.splice(index, 1);
+            // Fix the background to the About section
+            if (scrollPosition <= aboutHeight) {
+                aboutBackground.style.position = 'fixed';
+                aboutBackground.style.top = '0';
+            } else {
+                aboutBackground.style.position = 'absolute';
+                aboutBackground.style.top = `${aboutHeight}px`;
             }
         });
-        requestAnimationFrame(animate);
     }
-
-    init();
-    animate();
-
-    window.addEventListener('resize', () => {
-        aboutParticlesCanvas.width = window.innerWidth;
-        aboutParticlesCanvas.height = document.querySelector('.about').offsetHeight;
-        init();
-    });
 }
+
+// Initialize the fixed background effect
+document.addEventListener('DOMContentLoaded', handleFixedBackground);
