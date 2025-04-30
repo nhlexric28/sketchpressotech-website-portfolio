@@ -241,7 +241,7 @@ function setupGalleries() {
                 price: 'R250.00 ZAR'
             },
             {
-                src: 'Images/Portraites/Art4.jpg',
+                src: 'Images/Portraites/art4.jpg',
                 alt: 'Art 4',
                 title: 'Custom Sketch Portrait',
                 description: 'Hand-drawn, personalized, and made with love(Get Yourself your own just for R250)',
@@ -310,14 +310,14 @@ function setupGalleries() {
                 alt: 'Sketch 5',
                 title: 'Hope',
                 description: 'You Are My Only Hope HASHEM KING OF THE UNIVERSE',
-                price: 'R250.00 ZAR'
+                price: 'R300.00 ZAR'
             },
             {
                 src: 'Images/Sketches/Sketch6.jpg',
                 alt: 'Sketch 6',
                 title: 'Break Free',
                 description: 'For the peace of Israel',
-                price: 'R250.00 ZAR'
+                price: 'R200.00 ZAR'
             },
             {
                 src: 'Images/Sketches/Sketch7.jpg',
@@ -331,7 +331,7 @@ function setupGalleries() {
                 alt: 'Sketch 8',
                 title: 'Eye',
                 description: 'A glimpse into my eye!',
-                price: 'R300.00 ZAR'
+                price: 'R150.00 ZAR'
             },
 
             // Add all your sketch data here
