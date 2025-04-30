@@ -222,8 +222,8 @@ function setupGalleries() {
             {
                 src: 'Images/Portraites/Art1.jpg',
                 alt: 'Art 1',
-                title: 'Din avec la main dans le miroir et jupe rouge',
-                description: 'Editions: Edition of 50\nDimensions: 20 x 24in. (50.8 x 61cm)',
+                title: 'Custom Sketch Portrait',
+                description: 'Hand-drawn, personalized, and made with love(Get Yourself your own just for R250)',
                 price: 'R250.00 ZAR'
             },
             {
@@ -231,12 +231,13 @@ function setupGalleries() {
                 alt: 'Art 2',
                 title: 'Custom Sketch Portrait',
                 description: 'Hand-drawn, personalized, and made with love(Get Yourself your own just for R250)',
+                price: 'R250.00 ZAR'
             },
             {
                 src: 'Images/Portraites/Art3.jpg',
                 alt: 'Art 3',
-                title: 'Din avec la main dans le miroir et jupe rouge',
-                description: 'Editions: Edition of 50\nDimensions: 20 x 24in. (50.8 x 61cm)',
+                title: 'Custom Sketch Portrait',
+                description: 'Hand-drawn, personalized, and made with love(Get Yourself your own just for R250)',
                 price: 'R250.00 ZAR'
             },
             {
@@ -244,11 +245,12 @@ function setupGalleries() {
                 alt: 'Art 4',
                 title: 'Custom Sketch Portrait',
                 description: 'Hand-drawn, personalized, and made with love(Get Yourself your own just for R250)',
+                price: 'R250.00 ZAR'
             }, {
                 src: 'Images/Portraites/Art5.jpg',
                 alt: 'Art 5',
-                title: 'Din avec la main dans le miroir et jupe rouge',
-                description: 'Editions: Edition of 50\nDimensions: 20 x 24in. (50.8 x 61cm)',
+                title: 'Custom Sketch Portrait',
+                description: 'Hand-drawn, personalized, and made with love(Get Yourself your own just for R250)',
                 price: 'R250.00 ZAR'
             },
             {
@@ -256,11 +258,12 @@ function setupGalleries() {
                 alt: 'Art 6',
                 title: 'Custom Sketch Portrait',
                 description: 'Hand-drawn, personalized, and made with love(Get Yourself your own just for R250)',
+                price: 'R250.00 ZAR'
             }, {
                 src: 'Images/Portraites/Art7.jpg',
                 alt: 'Art 7',
-                title: 'Din avec la main dans le miroir et jupe rouge',
-                description: 'Editions: Edition of 50\nDimensions: 20 x 24in. (50.8 x 61cm)',
+                title: 'Custom Sketch Portrait',
+                description: 'Hand-drawn, personalized, and made with love(Get Yourself your own just for R250)',
                 price: 'R250.00 ZAR'
             },
             {
@@ -268,6 +271,7 @@ function setupGalleries() {
                 alt: 'Art 8',
                 title: 'Custom Sketch Portrait',
                 description: 'Hand-drawn, personalized, and made with love(Get Yourself your own just for R250)',
+                price: 'R250.00 ZAR'
             },
             // Add all your portrait data here
         ];
@@ -276,58 +280,58 @@ function setupGalleries() {
             {
                 src: 'Images/Sketches/Sketch1.jpg',
                 alt: 'Sketch 1',
-                title: 'Sketch Title',
-                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
-                price: 'R250.00 ZAR'
+                title: 'Recycling',
+                description: 'Doodling the sweet symphony of a stick figure mastering recycling goals while enjoying chocolate serenity',
+                price: 'R200.00 ZAR'
             },
             {
                 src: 'Images/Sketches/Sketch2.jpg',
                 alt: 'Sketch 2',
-                title: 'Sketch Title',
-                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
+                title: 'Motherly love',
+                description: "Nature's beauty revealed in each gentle pencil stroke.",
                 price: 'R250.00 ZAR'
             },
             {
                 src: 'Images/Sketches/Sketch3.jpg',
                 alt: 'Sketch 3',
-                title: 'Sketch Title',
-                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
+                title: 'Emptiness',
+                description: 'Empty headed? Nah, just empty bottled! What do you fill your head with for inspiration?',
                 price: 'R250.00 ZAR'
             },
             {
                 src: 'Images/Sketches/Sketch4.jpg',
                 alt: 'Sketch 4',
-                title: 'Sketch Title',
-                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
+                title: 'Birds Chirping',
+                description: 'Nature in rythm',
                 price: 'R250.00 ZAR'
             },
             {
                 src: 'Images/Sketches/Sketch5.jpg',
                 alt: 'Sketch 5',
-                title: 'Sketch Title',
-                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
+                title: 'Hope',
+                description: 'You Are My Only Hope HASHEM KING OF THE UNIVERSE',
                 price: 'R250.00 ZAR'
             },
             {
                 src: 'Images/Sketches/Sketch6.jpg',
                 alt: 'Sketch 6',
-                title: 'Sketch Title',
-                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
+                title: 'Break Free',
+                description: 'For the peace of Israel',
                 price: 'R250.00 ZAR'
             },
             {
                 src: 'Images/Sketches/Sketch7.jpg',
                 alt: 'Sketch 7',
-                title: 'Sketch Title',
-                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
+                title: 'Switch On',
+                description: 'Just switch on the light in you!',
                 price: 'R250.00 ZAR'
             },
             {
-                src: 'Images/Sketches/Sketch8.jpg',
+                src: 'Images/Sketches/sketch8.jpg',
                 alt: 'Sketch 8',
-                title: 'Sketch Title',
-                description: 'Editions: Edition of 50\nDimensions: 12 x 16in. (30.5 x 40.6cm)',
-                price: 'R250.00 ZAR'
+                title: 'Eye',
+                description: 'A glimpse into my eye!',
+                price: 'R300.00 ZAR'
             },
 
             // Add all your sketch data here
