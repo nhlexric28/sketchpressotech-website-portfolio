@@ -349,10 +349,11 @@ nav ul li a:hover {
     flex: 0 0 auto;
     cursor: pointer;
     transition: transform 0.4s ease;
+    border-radius: 10px;
+    border: 2px solid #00ffcc;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-
-/* Sketch Gallery Specific Fixes */
 #sketch-gallery .card-front {
     display: flex;
     align-items: center;
@@ -390,6 +391,8 @@ nav ul li a:hover {
     .gallery {
         gap: 15px;
         padding: 15px;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
     }
     
     .card {
@@ -949,41 +952,65 @@ table td ul li {
 }
 
 .close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
+    position: fixed; /* Changed from absolute to fixed */
+    top: 20px;
+    right: 20px;
     background: #ff4b2b;
     color: white;
     border: none;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 20;
+    z-index: 1001; /* Higher than container */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .about-container {
         flex-direction: column;
-        width: 90%;
-        margin: 2rem auto;
+        padding: 1.5rem;
+        width: 85%; /* More width on small screens */
+        margin: 60px 0 20px; /* Space for close button */
     }
     
     .about-content {
         padding-right: 0;
-        padding-bottom: 2rem;
+        padding-bottom: 1.5rem;
     }
     
-    .interactive-cube {
-        width: 200px;
-        height: 200px;
+    .about-image img {
+        max-height: 250px; /* Limit image height */
+        object-fit: contain;
+    }
+    
+    .close-btn {
+        top: 10px;
+        right: 10px;
+        width: 35px;
+        height: 25px;
     }
 }
 
+@media (max-width: 480px) {
+    .about-container {
+        padding: 1rem;
+    }
+    
+    .resume-buttons {
+        gap: 0.5rem;
+    }
+    
+    .button {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+}
 
 .contact {
     padding: 50px 20px;
