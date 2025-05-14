@@ -1400,3 +1400,235 @@ footer .social-icons a {
         font-size: 0.8rem;
     }
 }
+
+
+/* Creative Skills Section */
+.creative-skills {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    text-align: center;
+}
+
+.creative-skills h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #00ffcc;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
+
+.skill-category {
+    margin-bottom: 50px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skill-category h3 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Gallery Layout */
+.skill-gallery, .video-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.skill-card, .video-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover, .video-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Image/Video Previews */
+.skill-preview, .video-container {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.skill-preview img, .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.skill-card:hover .skill-preview img {
+    transform: scale(1.05);
+}
+
+.skill-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.skill-card:hover .skill-overlay {
+    opacity: 1;
+}
+
+.view-btn {
+    padding: 12px 25px;
+    background: #00ffcc;
+    color: #121212;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+    background: #00e6b8;
+    transform: scale(1.05);
+}
+
+/* Video Player Styles */
+video {
+    background: #000;
+}
+
+/* Skills Info */
+.skill-info {
+    padding: 20px;
+    text-align: left;
+}
+
+.skill-info h4 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    color: #00ffcc;
+}
+
+.skill-info p {
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+/* Talents Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    padding: 20px;
+}
+
+.talent-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.talent-card:hover {
+    background: rgba(0, 255, 204, 0.1);
+    transform: translateY(-5px);
+}
+
+.talent-card i {
+    font-size: 2.5rem;
+    color: #00ffcc;
+    margin-bottom: 15px;
+}
+
+.talent-card h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .skill-gallery, .video-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .skill-preview, .video-container {
+        height: 200px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .creative-skills h2 {
+        font-size: 2rem;
+    }
+    
+    .skill-category h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Design Lightbox */
+.design-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 90vh;
+    border: 2px solid #00ffcc;
+    border-radius: 5px;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: #00ffcc;
+    color: #121212;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-lightbox:hover {
+    background: #00e6b8;
+    transform: rotate(90deg);
+}
