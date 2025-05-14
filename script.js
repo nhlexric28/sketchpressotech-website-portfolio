@@ -770,3 +770,39 @@
                 });
             });
         });
+
+
+       // Lightbox for design previews
+document.querySelectorAll('.view-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const imgSrc = this.closest('.skill-card').querySelector('img').src;
+        const lightbox = document.createElement('div');
+        lightbox.className = 'design-lightbox';
+        lightbox.innerHTML = `
+            <div class="lightbox-content">
+                <img src="${imgSrc}" alt="Design Preview">
+                <button class="close-lightbox">&times;</button>
+            </div>
+        `;
+        document.body.appendChild(lightbox);
+        document.body.style.overflow = 'hidden';
+        
+        lightbox.querySelector('.close-lightbox').addEventListener('click', () => {
+            lightbox.remove();
+            document.body.style.overflow = '';
+        });
+    });
+});
+
+// Video play/pause on hover (optional)
+document.querySelectorAll('.video-container video').forEach(video => {
+    video.addEventListener('mouseenter', function() {
+        this.play();
+    });
+    
+    video.addEventListener('mouseleave', function() {
+        this.pause();
+        this.currentTime = 0;
+    });
+});
