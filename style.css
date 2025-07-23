@@ -817,14 +817,12 @@ table td ul li {
     text-align: center;
 }
 
-
-
-/* Cube Section Fixes */
-.cube-section {
+/* Tech Symbol Section */
+.tech-symbol-section {
     position: relative;
     height: 100vh;
     width: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1a2e5a 0%, #0c1226 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -833,28 +831,20 @@ table td ul li {
     overflow: hidden;
 }
 
-.interactive-cube {
-    width: 300px;
-    height: 300px;
+.interactive-symbols {
+    width: 100%;
+    height: 100%;
     cursor: pointer;
 }
-.cube-section h3 {
+
+.tech-symbol-section h3 {
     font-size: 2.5rem;
     color: #00ffcc;
     text-shadow: 0 0 10px #00ffcc;
-    margin-top: 2rem; /* Adjust spacing between cube and heading */
+    margin-top: 2rem;
     animation: glow 2s infinite alternate;
-    /* Remove manual margins */
 }
 
-@keyframes glow {
-    from {
-        text-shadow: 0 0 10px #00ffcc;
-    }
-    to {
-        text-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc;
-    }
-}
 
 /* About Section Fixes */
 .about {
@@ -872,8 +862,7 @@ table td ul li {
     visibility: hidden;
     transition: all 0.5s ease;
     pointer-events: none;
-    overflow-y: auto; /* Enable scrolling if content is too long */
-    padding: 20px; /* Add padding for small screens */
+    
 }
 
 .about.visible {
@@ -889,12 +878,12 @@ table td ul li {
     background: rgb(22, 66, 11);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px rgba(5, 146, 36, 0.3);
     position: relative;
-    margin: 2rem 0;
+    margin: 1rem 0;
     box-sizing: border-box;
-    max-height: 90vh; /* Limit height and enable scrolling */
-    overflow-y: auto;
+    max-height: 100vh; /* Limit height and enable scrolling */
+    overflow: hidden;
 }
 
 
@@ -918,7 +907,7 @@ table td ul li {
     }
 }
 .about-content {
-    flex: 1;
+    flex: 2;
     padding-right: 2rem;
 }
 
@@ -928,7 +917,7 @@ table td ul li {
 
 .about-image img {
     width: 100%;
-    height: auto;
+    height: 90%;
     border-radius: 5px;
     object-fit: cover;
 }
@@ -946,7 +935,7 @@ table td ul li {
     background: #00ffcc;
     color: #121212;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
     transition: all 0.3s;
 }
@@ -1400,6 +1389,7 @@ footer .social-icons a {
         font-size: 0.8rem;
     }
 }
+
 
 
 /* Creative Skills Section */
