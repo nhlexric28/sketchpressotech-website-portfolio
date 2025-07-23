@@ -11,38 +11,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <link rel="icon" type="image/jpeg" href="logo.jpeg">
     
-    <script type="text/javascript">
-        (function() {
-            emailjs.init({
-                publicKey: "zrY3_UXBzB3hd8Dl5",
-            });
-        })();
-    </script>
+  
 </head>
 
 <body>
 
-    <header>
+   <header>
         <div class="logo">
             <img src="logo.jpeg" alt="Logo">
         </div>
         <nav>
-           <!-- Add these attributes to your burger button -->
             <div class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
             </div>
             <ul class="nav-links" id="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#art">Art</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#social">Social</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <ul class="side-nav" id="side-nav">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#art">Art</a></li>
@@ -68,17 +54,15 @@
         <div id="sun"></div>
     </section>
 
-
-    <section id="cube-section" class="cube-section">
-
-        <h3>Click The Cube</h3>
-        <div id="cube-container" class="interactive-cube"></div>
+<section id="tech-symbol-section" class="tech-symbol-section">
+        <h3>Click The Tech Symbol</h3>
+        <div id="symbol-container" class="interactive-symbols"></div>
 
         <section id="about" class="about">
             <div class="about-container">
-                <div class="about-content">
+                <div id="know" class="about-content">
                     <h2>About Me</h2>
-                    <p>Hi, I'm Nhlanhla Moyo, the founder and operator of Sketchpressotecha, unique blend of tech genius, IT freelancing, and cyber enthusiasm. Specializing in computer troubleshooting, web development, and various other IT services. When I'm not diving into tech issues, I enjoy creating art using graphite and charcoal pencils. This creative outlet complements my technical skills, and allows me to assist clients with both their technological and artistic needs, making tech more accessible and less daunting for everyone.</p>
+                    <p>Hi, I'm Nhlanhla Moyo, the founder and operator of Sketchpressotech, a unique blend of tech genius, IT freelancing, and cyber enthusiasm. Specializing in computer troubleshooting, web development, and various other IT services. When I'm not diving into tech issues, I enjoy creating art using graphite and charcoal pencils. This creative outlet complements my technical skills, and allows me to assist clients with both their technological and artistic needs, making tech more accessible and less daunting for everyone.</p>
                     <div class="resume-buttons">
                         <a href="_MyCV.pdf" target="_blank" class="button">View My Resume</a>
                         <a href="https://wa.me/+27848422545" class="button">Contact Me for a Cool Website</a>
@@ -88,7 +72,7 @@
                 <div class="about-image">
                     <img src="IMG_20240629_104936.jpg" alt="Nhlanhla Moyo">
                 </div>
-                <button class="close-btn">×</button>
+                <button class="close-btn">x</button>
             </div>
         </section>
     </section>
@@ -188,79 +172,12 @@
                 <div class="service-item">
                     <span>5+ pages e-commerce</span>
                     <div class="price">R5000</div>
-                </div>                
-                <p>Prices Are Negociable</p>
-                <p>And Yep I Made this Website you are using Right Now</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="creative-skills" class="creative-skills">
-        <h2>My Creative Skills</h2>
-        
-        <!-- Canva Design Showcase -->
-        <div class="skill-category">
-            <h3><i class="fas fa-palette"></i> Graphic Design</h3>
-            <div class="skill-gallery">
-                <div class="skill-card">
-                    <div class="skill-preview">
-                        <img src="Images/Black and Blue Modern Bag Sale Flyer.png" alt="Canva Design Example 1">
-                        <div class="skill-overlay">
-                            <a href="#" class="view-btn">View Full Design</a>
-                        </div>
-                    </div>
-                    <div class="skill-info">
-                        <h4>Social Media Template</h4>
-                        <p>Created with Canva</p>
-                    </div>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-preview">
-                        <img src="Images/Blue Gradient Website Service Flyer.png" alt="Canva Design Example 2">
-                        <div class="skill-overlay">
-                            <a href="#" class="view-btn">View Full Design</a>
-                        </div>
-                    </div>
-                    <div class="skill-info">
-                        <h4>Business Presentation</h4>
-                        <p>Brand identity package</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Barista Skills Showcase -->
-        <div class="skill-category">
-            <h3><i class="fas fa-coffee"></i> Barista Skills</h3>
-            <div class="video-gallery">
-                <div class="video-card">
-                    <div class="video-container">
-                        <video poster="latte-art-poster.jpg" controls>
-                            <source src="latte-art.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="skill-info">
-                        <h4>Latte Art Techniques</h4>
-                        <p>Free-pour demonstration</p>
-                    </div>
-                </div>
-                
-                <div class="video-card">
-                    <div class="video-container">
-                        <video poster="Images/Latte Art.jpg" controls>
-                            <source src="espresso-brewing.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="skill-info">
-                        <h4>Espresso Mastery</h4>
-                        <p>Perfect extraction techniques</p>
-                    </div>
-                </div>
-            </div>
-        </div>
         
         <!-- Additional Skills -->
         <div class="skill-category">
@@ -274,8 +191,8 @@
                 
                 <div class="talent-card">
                     <i class="fas fa-video"></i>
-                    <h4>Image Editing</h4>
-                    <p>Adope Express | Canva | Gimp</p>
+                    <h4>Video Editing</h4>
+                    <p>DaVinci Resolve</p>
                 </div>
                 
                 <div class="talent-card">
@@ -311,7 +228,7 @@
     </section>
 
     <section id="contact" class="contact">
-        <h2>Contact Me</h2>
+        <h2>Contact Us</h2>
         <form id="contact-form">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
@@ -345,6 +262,7 @@
             </div>
         </div>
     </footer>
+   
 
 
     <script src="script.js"></script>
