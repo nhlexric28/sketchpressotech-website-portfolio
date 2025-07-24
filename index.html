@@ -6,19 +6,15 @@
     <title>Sketchpressotech Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Removed duplicate Three.js and GSAP imports -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <link rel="icon" type="image/jpeg" href="logo.jpeg">
-    
-  
 </head>
 
 <body>
-
-   <header>
+    <header>
         <div class="logo">
             <img src="logo.jpeg" alt="Logo">
         </div>
@@ -29,6 +25,14 @@
                 <div class="line"></div>
             </div>
             <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#art">Art</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#social">Social</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <ul class="side-nav" id="side-nav">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#art">Art</a></li>
@@ -54,54 +58,66 @@
         <div id="sun"></div>
     </section>
 
-<section id="tech-symbol-section" class="tech-symbol-section">
+    <section id="tech-symbol-section" class="tech-symbol-section">
         <h3>Click The Tech Symbol</h3>
         <div id="symbol-container" class="interactive-symbols"></div>
+    </section>
 
-        <section id="about" class="about">
-            <div class="about-container">
-                <div id="know" class="about-content">
-                    <h2>About Me</h2>
-                    <p>Hi, I'm Nhlanhla Moyo, the founder and operator of Sketchpressotech, a unique blend of tech genius, IT freelancing, and cyber enthusiasm. Specializing in computer troubleshooting, web development, and various other IT services. When I'm not diving into tech issues, I enjoy creating art using graphite and charcoal pencils. This creative outlet complements my technical skills, and allows me to assist clients with both their technological and artistic needs, making tech more accessible and less daunting for everyone.</p>
-                    <div class="resume-buttons">
-                        <a href="_MyCV.pdf" target="_blank" class="button">View My Resume</a>
-                        <a href="https://wa.me/+27848422545" class="button">Contact Me for a Cool Website</a>
-                        <a href="https://wa.me/+27848422545" class="button">Get an Art of Yourself/Fam</a>
-                    </div>
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>Hi, I'm Nhlanhla Moyo, the founder and operator of Sketchpressotech, a unique blend of tech genius, IT freelancing, and cyber enthusiasm. Specializing in computer troubleshooting, web development, and various other IT services. When I'm not diving into tech issues, I enjoy creating art using graphite and charcoal pencils. This creative outlet complements my technical skills, and allows me to assist clients with both their technological and artistic needs, making tech more accessible and less daunting for everyone.</p>
+                <div class="resume-buttons">
+                    <a href="_MyCV.pdf" target="_blank" class="button">View My Resume</a>
+                    <a href="https://wa.me/+27848422545" class="button">Contact Me for a Cool Website</a>
+                    <a href="https://wa.me/+27848422545" class="button">Get an Art of Yourself/Fam</a>
                 </div>
-                <div class="about-image">
-                    <img src="IMG_20240629_104936.jpg" alt="Nhlanhla Moyo">
-                </div>
-                <button class="close-btn">x</button>
             </div>
-        </section>
+            <div class="about-image">
+                <img src="IMG_20240629_104936.jpg" alt="Nhlanhla Moyo">
+            </div>
+            <button class="close-btn">x</button>
+        </div>
     </section>
 
     <section id="art" class="portfolio">
-        <h2>Portraits</h2>
-        <div class="gallery" id="portrait-gallery"></div>
-        <div class="pagination" id="portrait-pagination">
-            <button class="page-btn">1</button>
-            <button class="page-btn">2</button>
-            <button class="page-btn">3</button>
-            <button class="page-btn">4</button>
+        <div class="product-tabs">
+            <button class="tab-btn active" data-category="portrait">
+                Portrait & Art <span class="product-count-badge">8</span>
+            </button>
+            <button class="tab-btn" data-category="sketch">
+                Sketches <span class="product-count-badge">8</span>
+            </button>
         </div>
-
-        <h2>Sketches</h2>
-        <div class="gallery" id="sketch-gallery"></div>
-        <div class="pagination" id="sketch-pagination">
-            <button class="page-btn">1</button>
-            <button class="page-btn">2</button>
-            <button class="page-btn">3</button>
-            <button class="page-btn">4</button>
+        
+        <!-- Portrait Gallery -->
+        <div class="gallery-container">
+            <div class="gallery" id="portrait-gallery"></div>
+            <div class="pagination" id="portrait-pagination">
+                <button class="page-btn" data-page="1">1</button>
+                <button class="page-btn" data-page="2">2</button>
+                <button class="page-btn" data-page="3">3</button>
+                <button class="page-btn" data-page="4">4</button>
+            </div>
         </div>
-
+        
+        <!-- Sketch Gallery -->
+        <div class="gallery-container" style="display:none">
+            <div class="gallery" id="sketch-gallery"></div>
+            <div class="pagination" id="sketch-pagination">
+                <button class="page-btn" data-page="1">1</button>
+                <button class="page-btn" data-page="2">2</button>
+                <button class="page-btn" data-page="3">3</button>
+                <button class="page-btn" data-page="4">4</button>
+            </div>
+        </div>
+        
         <div id="lightbox" class="lightbox">
             <img class="lightbox-content" id="lightbox-img">
             <div class="caption" id="lightbox-caption"></div>
         </div>
     </section>
-
     <section id="skills" class="skills">
         <h2>My Skills & Services</h2>
         <div class="service-table">
@@ -178,8 +194,6 @@
     </section>
 
     <section id="creative-skills" class="creative-skills">
-        
-        <!-- Additional Skills -->
         <div class="skill-category">
             <h3><i class="fas fa-star"></i> Other Talents</h3>
             <div class="skills-grid">
@@ -188,13 +202,11 @@
                     <h4>Pencil Art</h4>
                     <p>Hand-drawn portrait sketches & detailed illustrations</p>
                 </div>
-                
                 <div class="talent-card">
                     <i class="fas fa-video"></i>
                     <h4>Video Editing</h4>
                     <p>DaVinci Resolve</p>
                 </div>
-                
                 <div class="talent-card">
                     <i class="fas fa-chart-line"></i>
                     <h4>Digital Marketing</h4>
@@ -244,8 +256,6 @@
         <p>© 2025 Sketchpressotech. All rights reserved.
         <aside style="color: #fff; font-style: italic; font-weight: bolder;">Designed by:</aside><a
             href="https://sketchpressotech-website-portfolio.onrender.com"> Sketchpressotech</a></p>
-
-        <!-- Update your social media floating button -->
         <div id="connect-float">
             <div id="connect-icon">
                 <i class="fas fa-share-alt"></i>
@@ -263,9 +273,6 @@
         </div>
     </footer>
    
-
-
     <script src="script.js"></script>
 </body>
-
 </html>
