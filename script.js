@@ -1,4 +1,3 @@
-// script.js
 (function () {
     emailjs.init("FZrBrnusKTV0ryBEj");
 })();
@@ -110,11 +109,11 @@ function setupTechSymbols() {
         const createSymbol = (char, position) => {
             const canvas = document.createElement('canvas');
             const context = canvas.getContext('2d');
-            canvas.width = 64;
+            canvas.width = 100;
             canvas.height = 64;
             context.fillStyle = '#009999';
-            context.font = '70px Arial';
-            context.fillText(char, 10, 50);
+            context.font = '40px Arial';
+            context.fillText(char, 10, 60);
 
             const texture = new THREE.CanvasTexture(canvas);
             const material = new THREE.MeshBasicMaterial({
@@ -132,12 +131,12 @@ function setupTechSymbols() {
         };
 
         // Create coding symbols
-        const symbolChars = ['{', '}', '<', '>', '/', ';', ':', '(', ')', '</>'];
+        const symbolChars = ['{', '🌐', '<', '🛜', '/', ';', '⚙️', '</>', '🧑🏼‍💻', '</>'];
         for (let i = 0; i < 10; i++) {
             const position = new THREE.Vector3(
                 (Math.random() - 0.5) * 6,
-                (Math.random() - 0.5) * 5,
-                (Math.random() - 0.5) * 5
+                (Math.random() - 0.5) * 6,
+                (Math.random() - 0.5) * 6
             );
             createSymbol(symbolChars[i], position);
         }
