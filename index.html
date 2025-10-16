@@ -67,58 +67,58 @@
         <div class="about-container">
             <div class="about-content">
                 <h2>About Me</h2>
-                <p>Hi, I'm Nhlanhla Moyo, the founder and operator of Sketchpressotech, a unique blend of tech genius, IT freelancing, and cyber enthusiasm. Specializing in computer troubleshooting, web development, and various other IT services and a profetional Technician. When I'm not diving into tech issues, I enjoy creating art using graphite and charcoal pencils. This creative outlet complements my technical skills, and allows me to assist clients with both their technological and artistic needs, making tech more accessible and less daunting for everyone. I hold with me a Diploma in IT and currently pursuing CCST</p>
+                <p>Hi, I'm Nhlanhla Moyo, founder of Sketchpressotech—where tech expertise meets creative flair. I'm a professional IT technician specializing in troubleshooting, web development, and freelance IT services. With a Diploma in IT and currently pursuing CCST, I blend technical precision with artistic passion, creating graphite and charcoal art that complements my tech work. I help clients navigate both digital and creative challenges with ease.</p>
                 <div class="resume-buttons">
-                    <a href="_MyCV.pdf" target="_blank" class="button">View My Resume</a>
+                    <a href="cv.html" target="#wha" class="button">View My Resume</a>
                     <a href="https://wa.me/+27848422545" class="button">Contact Me for a Cool Website</a>
                     <a href="https://wa.me/+27848422545" class="button">Get an Art of Yourself/Fam</a>
                 </div>
             </div>
             <div class="about-image">
-                <img src="IMG_20240629_104936.jpg" alt="Nhlanhla Moyo">
+                <img src="IMG_20240629_104937.jpg" alt="Nhlanhla Moyo">
             </div>
             <button class="close-btn">x</button>
         </div>
     </section>
 
-    <section id="art" class="portfolio">
-        <h2>Art Work</h2><br><br>
-        <div class="product-tabs">
-            <button class="tab-btn active" data-category="portrait">
-                Portrait & Art <span class="product-count-badge">8</span>
-            </button>
-            <button class="tab-btn" data-category="sketch">
-                Sketches <span class="product-count-badge">8</span>
-            </button>
+ <section id="art" class="portfolio">
+    <h2>Art Work</h2><br><br>
+    <div class="product-tabs">
+        <button class="tab-btn active" data-category="portrait">
+            Portrait & Art <span class="product-count-badge">8</span>
+        </button>
+        <button class="tab-btn" data-category="sketch">
+            Sketches <span class="product-count-badge">8</span>
+        </button>
+    </div>
+    
+    <!-- Portrait Gallery -->
+    <div class="gallery-container">
+        <div class="gallery" id="portrait-gallery"></div>
+        <div class="pagination" id="portrait-pagination">
+            <button class="page-btn" data-page="1">1</button>
+            <button class="page-btn" data-page="2">2</button>
+            <button class="page-btn" data-page="3">3</button>
+            <button class="page-btn" data-page="4">4</button>
         </div>
-        
-        <!-- Portrait Gallery -->
-        <div class="gallery-container">
-            <div class="gallery" id="portrait-gallery"></div>
-            <div class="pagination" id="portrait-pagination">
-                <button class="page-btn" data-page="1">1</button>
-                <button class="page-btn" data-page="2">2</button>
-                <button class="page-btn" data-page="3">3</button>
-                <button class="page-btn" data-page="4">4</button>
-            </div>
+    </div>
+    
+    <!-- Sketch Gallery -->
+    <div class="gallery-container" style="display:none">
+        <div class="gallery" id="sketch-gallery"></div>
+        <div class="pagination" id="sketch-pagination">
+            <button class="page-btn" data-page="1">1</button>
+            <button class="page-btn" data-page="2">2</button>
+            <button class="page-btn" data-page="3">3</button>
+            <button class="page-btn" data-page="4">4</button>
         </div>
-        
-        <!-- Sketch Gallery -->
-        <div class="gallery-container" style="display:none">
-            <div class="gallery" id="sketch-gallery"></div>
-            <div class="pagination" id="sketch-pagination">
-                <button class="page-btn" data-page="1">1</button>
-                <button class="page-btn" data-page="2">2</button>
-                <button class="page-btn" data-page="3">3</button>
-                <button class="page-btn" data-page="4">4</button>
-            </div>
-        </div>
-        
-        <div id="lightbox" class="lightbox">
-            <img class="lightbox-content" id="lightbox-img">
-            <div class="caption" id="lightbox-caption"></div>
-        </div>
-    </section>
+    </div>
+    
+    <div id="lightbox" class="lightbox">
+        <img class="lightbox-content" id="lightbox-img">
+        <div class="caption" id="lightbox-caption"></div>
+    </div>
+</section>
     <section id="skills" class="skills">
         <h2>My Skills & Services</h2>
         <div class="service-table">
@@ -215,6 +215,9 @@
                         <span class="tag">JavaScript</span>
                     </div>
                     <div class="project-links">
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
                         <a href="https://github.com/nhlexric28/calculator-app" class="project-link">
                             <i class="fab fa-github"></i> Source Code
                         </a>
