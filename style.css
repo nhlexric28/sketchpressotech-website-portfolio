@@ -233,8 +233,9 @@ header.scrolled {
 
 .hero p {
     font-size: 1.5em;
-    margin: 0.5em 0;
+    margin: 0.9em 0;
     animation: fadeIn 2s ease-in-out;
+    animation: float 5s infinite ease-in-out;
     color: #00ffcc;
 }
 
@@ -248,13 +249,13 @@ header.scrolled {
     border-radius: 50%;
     box-shadow: 0 0 100px 50px rgba(255, 140, 0, 0.5),
                 0 0 200px 100px rgba(255, 215, 0, 0.3);
-    animation: sun-glow 2s infinite alternate;
-    transform: translate(-50%, -50%) scale(0.5);
-    z-index: 0;
+    animation: sun-glow 1s infinite alternate;
+    transform: translate(-50%, -50%) scale(0.6);
+    z-index: 2;
 }
 
 .logo img {
-    height: 50px;
+    height: 70px;
     border-radius: 50%;
     margin: 10px;
     z-index: 1001;
@@ -288,7 +289,7 @@ header.scrolled {
     animation: glow 2s infinite alternate;
 }
 
-/* Add to existing CSS */
+
 /* Center tech symbol on mobile */
 @media (max-width: 768px) {
     .tech-symbol-section {
@@ -498,39 +499,26 @@ header.scrolled {
     padding: 20px;
 }
 
-/* Card Styles */
+/* Updated Card Styles with Individual Buttons */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    perspective: 1000px;
+}
+
 .card {
     width: 260px;
     height: 260px;
-    perspective: 1000px;
-    margin: 20px;
-    flex: 0 0 auto;
-    cursor: pointer;
-    transition: transform 0.4s ease;
-    border-radius: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.card-inner {
-    width: 100%;
-    height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 0.6s;
+    transition: transform 0.6s ease;
+    border-radius: 10px;
+    margin-bottom: 30px;
 }
 
-.card.flipped .card-inner {
+.card.flipped {
     transform: rotateY(180deg);
 }
 
@@ -545,11 +533,11 @@ header.scrolled {
 }
 
 .card-front {
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     background-color: #918b8b;
-    padding: 15px;
+    padding: 5px;
 }
 
 .card-front img {
@@ -565,7 +553,7 @@ header.scrolled {
 .card-back {
     background-color: #f8f8f8;
     transform: rotateY(180deg);
-    padding: 20px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -573,34 +561,95 @@ header.scrolled {
     text-align: center;
 }
 
-
-
-.learn-more {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.9);
+/* Individual Flip Button Styles */
+.flip-btn {
+    padding: 10px 20px;
     background-color: #00ffcc;
     color: #121212;
-    padding: 12px 24px;
-    border-radius: 5px;
-    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
     cursor: pointer;
+    font-weight: bold;
     transition: all 0.3s ease;
-    opacity: 0;
-    z-index: 2;
-    white-space: nowrap;
+    min-width: 120px;
+    font-size: 0.9rem;
 }
 
-.card:hover .image-overlay {
-    opacity: 0.7;
+.flip-btn:hover {
+    background-color: #00cc99;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 204, 0.3);
 }
 
-.card:hover .learn-more {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+.flip-btn.go-back {
+    background-color: #ff6b6b;
 }
 
+.flip-btn.go-back:hover {
+    background-color: #ff5252;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+/* Remove old learn-more button styles */
+.learn-more {
+    display: none;
+}
+
+.image-overlay {
+    display: none;
+}
+
+/* Remove hover effects since we're using buttons */
+.card {
+    cursor: default;
+}
+
+.card:hover {
+    transform: none;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-container {
+        margin: 10px;
+        
+    }
+    
+    .card {
+        width: 500px;
+        height: 500px;
+        
+    }
+    
+    .flip-btn {
+        padding: 8px 20px;
+        font-size: 0.8rem;
+        min-width: 100px;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 30px;
+    }
+    
+    .card-back {
+        padding: 10px;
+    }
+    
+    .card-back h3 {
+        font-size: 1rem;
+    }
+    
+    .card-back p {
+        font-size: 0.8rem;
+    }
+}
 /* Pagination styles */
 .pagination {
     display: flex;
@@ -637,13 +686,14 @@ header.scrolled {
 
 @media (max-width: 768px) {
     .gallery {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
+    
 }
 
 @media (max-width: 480px) {
     .gallery {
-        grid-template-columns: 1fr;
+        grid-template-columns: fr;
     }
 }
 
