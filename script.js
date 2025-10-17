@@ -333,29 +333,50 @@ function setupFormFocusEffects() {
     });
 }
 
+// UPDATED createCard function with individual buttons
 function createCard(item) {
+    const cardContainer = document.createElement('div');
+    cardContainer.className = 'card-container';
+    
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
-        <div class="card-inner">
-            <div class="card-front">
-                <img src="${item.src}" alt="${item.alt}">
-                <div class="image-overlay"></div>
-                <div class="learn-more">Learn More</div>
-            </div>
-            <div class="card-back">
-                <h3>${item.title}</h3>
-                <p>${item.description.replace(/\n/g, '<br>')}</p>
-                <p class="price">${item.price}</p>
-            </div>
+        <div class="card-front">
+            <img src="${item.src}" alt="${item.alt}">
+        </div>
+        <div class="card-back">
+            <h3>${item.title}</h3>
+            <p>${item.description.replace(/\n/g, '<br>')}</p>
+            <p class="price">${item.price}</p>
         </div>
     `;
-    card.addEventListener('click', () => {
+    
+    const flipButton = document.createElement('button');
+    flipButton.className = 'flip-btn';
+    flipButton.textContent = 'Learn More';
+    
+    // Add click event to flip the specific card
+    flipButton.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent event bubbling
         card.classList.toggle('flipped');
+        
+        // Update button text and style
+        if (card.classList.contains('flipped')) {
+            flipButton.textContent = 'Go Back';
+            flipButton.classList.add('go-back');
+        } else {
+            flipButton.textContent = 'Learn More';
+            flipButton.classList.remove('go-back');
+        }
     });
-    return card;
+    
+    cardContainer.appendChild(card);
+    cardContainer.appendChild(flipButton);
+    
+    return cardContainer;
 }
 
+// UPDATED setupGalleries function
 function setupGalleries() {
     const portraitGallery = document.getElementById('portrait-gallery');
     const sketchGallery = document.getElementById('sketch-gallery');
@@ -483,70 +504,69 @@ function setupGalleries() {
         ];
 
         // Function to render gallery with pagination
-    function renderGallery(gallery, items, page) {
-        gallery.innerHTML = '';
-        const startIndex = (page - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-        const pageItems = items.slice(startIndex, endIndex);
+        function renderGallery(gallery, items, page) {
+            gallery.innerHTML = '';
+            const startIndex = (page - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageItems = items.slice(startIndex, endIndex);
+            
+            pageItems.forEach(item => {
+                const card = createCard(item);
+                gallery.appendChild(card);
+            });
+        }
         
-        pageItems.forEach(item => {
-            const card = createCard(item);
-            gallery.appendChild(card);
-        });
-    }
-    
-    // Function to set active page
-    function setActivePage(pagination, page) {
-        const buttons = pagination.querySelectorAll('.page-btn');
-        buttons.forEach(btn => {
-            btn.classList.toggle('active', parseInt(btn.dataset.page) === page);
-        });
-    }
-    
-    // Initialize galleries
-    renderGallery(portraitGallery, portraits, 1);
-    renderGallery(sketchGallery, sketches, 1);
-    setActivePage(portraitPagination, 1);
-    setActivePage(sketchPagination, 1);
-    
-    // Pagination event handlers
-    portraitPagination.addEventListener('click', (e) => {
-        if (e.target.classList.contains('page-btn')) {
-            const page = parseInt(e.target.dataset.page);
-            renderGallery(portraitGallery, portraits, page);
-            setActivePage(portraitPagination, page);
+        // Function to set active page
+        function setActivePage(pagination, page) {
+            const buttons = pagination.querySelectorAll('.page-btn');
+            buttons.forEach(btn => {
+                btn.classList.toggle('active', parseInt(btn.dataset.page) === page);
+            });
         }
-    });
-    
-    sketchPagination.addEventListener('click', (e) => {
-        if (e.target.classList.contains('page-btn')) {
-            const page = parseInt(e.target.dataset.page);
-            renderGallery(sketchGallery, sketches, page);
-            setActivePage(sketchPagination, page);
-        }
-    });
-    
-    // Tab switching
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Update active tab
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            
-            // Show the corresponding gallery
-            const category = button.dataset.category;
-            const galleries = document.querySelectorAll('.gallery-container');
-            
-            if (category === 'portrait') {
-                galleries[0].style.display = 'flex';
-                galleries[1].style.display = 'none';
-            } else if (category === 'sketch') {
-                galleries[0].style.display = 'none';
-                galleries[1].style.display = 'flex';
+        
+        // Initialize galleries
+        renderGallery(portraitGallery, portraits, 1);
+        renderGallery(sketchGallery, sketches, 1);
+        setActivePage(portraitPagination, 1);
+        setActivePage(sketchPagination, 1);
+        
+        // Pagination event handlers
+        portraitPagination.addEventListener('click', (e) => {
+            if (e.target.classList.contains('page-btn')) {
+                const page = parseInt(e.target.dataset.page);
+                renderGallery(portraitGallery, portraits, page);
+                setActivePage(portraitPagination, page);
             }
         });
-    });
-
+        
+        sketchPagination.addEventListener('click', (e) => {
+            if (e.target.classList.contains('page-btn')) {
+                const page = parseInt(e.target.dataset.page);
+                renderGallery(sketchGallery, sketches, page);
+                setActivePage(sketchPagination, page);
+            }
+        });
+        
+        // Tab switching
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active tab
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Show the corresponding gallery
+                const category = button.dataset.category;
+                const galleries = document.querySelectorAll('.gallery-container');
+                
+                if (category === 'portrait') {
+                    galleries[0].style.display = 'flex';
+                    galleries[1].style.display = 'none';
+                } else if (category === 'sketch') {
+                    galleries[0].style.display = 'none';
+                    galleries[1].style.display = 'flex';
+                }
+            });
+        });
     }
 }
 
@@ -560,7 +580,7 @@ function setupParticleAnimation() {
         particleCanvas.appendChild(particleRenderer.domElement);
 
         const particlesGeometry = new THREE.BufferGeometry();
-        const particlesCount = 5000;
+        const particlesCount = 9000;
         const positions = new Float32Array(particlesCount * 3);
         const colors = new Float32Array(particlesCount * 3);
 
