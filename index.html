@@ -229,7 +229,20 @@
     </section>
     <section id="contact" class="contact">
         
-        <h2>Contact Us</h2><marquee>NB: Only Contact Me On APP, not through the form. Thank you😊</marquee>
+        <h2 style="position: relative;">
+  Contact Us
+  <span style="position: absolute; top: 0; left: 0; white-space: nowrap; animation: scroll 5s linear infinite;">
+    NB: Only Contact Me On APP, not through the form. Thank you 😊
+  </span>
+</h2>
+
+<style>
+@keyframes scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+</style>
+
         <form id="contact-form">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
@@ -265,5 +278,6 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
