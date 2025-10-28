@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhlanhla Eric Movo - CV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2b6777;
+            --secondary: #52ab98;
+            --accent: #c8d8e4;
+            --light: #f2f2f2;
+            --dark: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 30px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .title {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        
+        .sidebar {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+        
+        .main-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        h3 {
+            color: var(--secondary);
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+        
+        .personal-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .personal-info i {
+            margin-right: 10px;
+            color: var(--primary);
+            width: 20px;
+        }
+        
+        .education-item, .experience-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .date {
+            color: #777;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding-left: 5px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        li:before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .skill-category {
+            margin-bottom: 20px;
+        }
+        
+        .skill-category h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .course-item {
+            margin-bottom: 15px;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: var(--secondary);
+            border-radius: 4px;
+        }
+        
+        .contact-btn {
+            display: block;
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        
+        .contact-btn:hover {
+            background-color: var(--secondary);
+        }
+        
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .print-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            z-index: 100;
+        }
+        
+        .print-btn:hover {
+            background-color: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Nhlanhla Eric Moyo</h1>
+            <p class="title">IT Graduate & Part-Time Barista</p>
+            <p>Seeking an entry-level position to utilize my programming skills in information systems and cybersecurity</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <div class="section">
+                <h2>Personal Details</h2>
+                <div class="personal-info">
+                    <p><i class="fas fa-birthday-cake"></i> <strong>Date of birth:</strong> 05 Oct 2000</p>
+                    <p><i class="fas fa-heart"></i> <strong>Marital status:</strong> Single</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Johannesburg</p>
+                    <p><i class="fas fa-envelope"></i> <strong>Email:</strong> moyonhlanhlaeric28@gmail.com</p>
+                    <p><i class="fas fa-linkedin"></i> <strong>LinkedIn:</strong> www.linkedin.com/in/sketchpressotech</p>
+                    <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +27 61 056 2911</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Languages</h2>
+                <div class="language">
+                    <p>English <span style="float: right;">Fluent</span></p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 95%;"></div>
+                    </div>
+                </div>
+                <div class="language" style="margin-top: 15px;">
+                    <p>Zulu <span style="float: right;">Native</span></p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Key Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Programming</h4>
+                        <p>HTML/CSS</p>
+                        <p>JavaScript</p>
+                        <p>PHP</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Software</h4>
+                        <p>Microsoft Office</p>
+                        <p>Git & GitHub</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Other</h4>
+                        <p>Customer Service</p>
+                        <p>Coffee Brewing</p>
+                        <p>Team Collaboration</p>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#contact" class="contact-btn">Contact Me</a>
+        </aside>
+        
+        <main class="main-content">
+            <div class="section">
+                <h2>About Me</h2>
+                <p>I am a highly motivated and detail-oriented Information Technology graduate seeking an entry-level position to utilize my programming skills and experience in information systems and cybersecurity. With demonstrated proficiency in HTML, CSS, PHP, and JavaScript, I have gained valuable experience through building both front-end and back-end systems at Richfield College. I am eager to enhance my skills within a dynamic IT role, contributing to the success of a cutting-edge organization. Additionally, I bring four years of experience as a part-time barista, where I developed a solid understanding of coffee preparation and exceptional customer service.</p>
+            </div>
+            
+            <div class="section">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <h3>Richfield College</h3>
+                    <p class="date">2021 - 2023 | Johannesburg</p>
+                    <p><strong>Diploma in Information Technology</strong></p>
+                    <p>Specialization: Programming, Information Systems, Internet Programming (PHP), Web Technologies</p>
+                    <ul>
+                        <li>Developed a modernized college election system, enhancing student engagement and transparency</li>
+                        <li>Worked with a team to research and develop the project</li>
+                        <li>Successfully presented the project to college administrators and students</li>
+                    </ul>
+                </div>
+                
+                <div class="education-item">
+                    <h3>University of Johannesburg</h3>
+                    <p class="date">Feb 2018 - Sep 2019 | Johannesburg</p>
+                    <p>Design Cafe Program</p>
+                </div>
+                
+                <div class="education-item">
+                    <h3>National Senior Certificate</h3>
+                    <p class="date">Finished 2020</p>
+                    <p>Matric (Grade 12)</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Work Experience</h2>
+                <div class="experience-item">
+                    <h3>Volunteer Barista</h3>
+                    <h3>IFCM @ HeBru espresso bar</h3>
+                    <p class="date">Oct 2021 - Present | Johannesburg</p>
+                    <ul>
+                        <li>Delivered exceptional customer service by creating a friendly and welcoming atmosphere for customers</li>
+                        <li>Achieved high accuracy in taking orders and fulfilling customer preferences</li>
+                        <li>Skillfully prepared and served a diverse range of high-quality beverages and food items</li>
+                        <li>Processed payments with accuracy and integrity, enhancing overall customer satisfaction</li>
+                        <li>Maintained and cleaned coffee equipment to ensure optimal functionality and hygiene standards</li>
+                        <li>Assisted in inventory management and restocking, contributing to operational efficiency</li>
+                        <li>Collaborated effectively with a team of volunteers to ensure seamless coffee ministry operations</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>Part-time Barista Trainee</h3>
+                    <p class="date">2019 - 2021 | Johannesburg</p>
+                    <ul>
+                        <li>Successfully completed a comprehensive barista training program, mastering espresso preparation, milk frothing, and brewing techniques</li>
+                        <li>Acquired essential knowledge in coffee-bean selection and the significance of coffee freshness</li>
+                        <li>Gained expertise in hygiene and safety standards within a fast-paced food service environment</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Certifications</h2>
+                <div class="course-item">
+                    <h3>Cisco Cybersecurity Certificates</h3>
+                    <ul>
+                        <li>Introduction to Cyber Security</li>
+                        <li>Endpoint Security</li>
+                        <li>Network Defense</li>
+                        <li>Cyber Threat Management</li>
+                        <li>IT Essentials</li>
+                        <li>Networking Basics</li>
+                        <li>Networking Devices and Initial Configuration</li>
+                        <li>CCST</li>
+                        <li>And maymore...</li>
+                    </ul>
+                </div>
+                
+                <div class="course-item">
+                    <h3>ALISON Online Courses</h3>
+                    <ul>
+                        <li>Office Presentation and Serving Skills</li>
+                        <li>Ethical Hacking, Cyber Security: Understanding Threats and Prevent Attacks</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section" id="contact">
+                <h2>Contact</h2>
+                <p>Feel free to reach out to me for opportunities or questions:</p>
+                <p><strong>Email:</strong> moyonhlanhlaeric28@gmail.com</p>
+                <p><strong>Phone:</strong> +27 61 056 2911</p>
+                <p><strong>LinkedIn:</strong> www.linkedin.com/in/sketchpressotech</p>
+            </div>
+        </main>
+    </div>
+    
+    <div class="print-btn" onclick="window.print()">
+        <i class="fas fa-print"></i>
+    </div>
+
+    <script>
+        // Simple JavaScript for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation to sections when they come into view
+            const sections = document.querySelectorAll('.section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
