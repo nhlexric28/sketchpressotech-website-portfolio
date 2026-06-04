@@ -1,5 +1,5 @@
 (function () {
-    emailjs.init("FZrBrnusKTV0ryBEj");
+    emailjs.init("-OMVgfH4w0QQhGp01");
 })();
 
 // Global Variables
@@ -34,7 +34,7 @@ function setupContactForm() {
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
-            emailjs.sendForm("service_kh0o3v5", "template_b1ghizq", this)
+            emailjs.sendForm("service_dfoqr5j", "template_83y4g8n", this)
                 .then(() => {
                     alert('Thank you for your message! I will get back to you soon.');
                     this.reset();
