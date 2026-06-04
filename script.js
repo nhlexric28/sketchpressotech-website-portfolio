@@ -34,7 +34,7 @@ function setupContactForm() {
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
-            emailjs.sendForm("service_dfoqr5j", "template_83y4g8n", this)
+            emailjs.sendForm("service_dfoqr5j", "template_96xqi9s", this)
                 .then(() => {
                     alert('Thank you for your message! I will get back to you soon.');
                     this.reset();
