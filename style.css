@@ -1105,12 +1105,14 @@ header.scrolled {
 .footer-copy {
   font-size: 0.78rem;
   color: rgba(255,255,255,0.25);
+  margine-bottom: 60px;
 }
  
 .footer-credit {
   font-family: var(--mono);
   font-size: 0.7rem;
   color: var(--c-dim);
+  margine-bottom: 60px;
 }
  
 .footer-credit a {
