@@ -550,23 +550,28 @@ function setupGalleries() {
         // Tab switching
         tabButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Update active tab
                 tabButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
-                
-                // Show the corresponding gallery
+
                 const category = button.dataset.category;
                 const galleries = document.querySelectorAll('.gallery-container');
-                
+                const portraitPag = document.getElementById('portrait-pagination');
+                const sketchPag = document.getElementById('sketch-pagination');
+
                 if (category === 'portrait') {
                     galleries[0].style.display = 'flex';
                     galleries[1].style.display = 'none';
+                    portraitPag.style.display = 'flex';
+                    sketchPag.style.display = 'none';
                 } else if (category === 'sketch') {
                     galleries[0].style.display = 'none';
                     galleries[1].style.display = 'flex';
+                    portraitPag.style.display = 'none';
+                    sketchPag.style.display = 'flex';
                 }
             });
         });
+
     }
 }
 
