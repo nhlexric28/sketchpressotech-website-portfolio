@@ -6,6 +6,7 @@
     <title>Sketchpressotech Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
@@ -80,194 +81,250 @@
             <button class="close-btn">x</button>
         </div>
     </section>
-
- <section id="art" class="portfolio">
-    <h2>Art Work</h2><br><br>
-    <div class="product-tabs">
-        <button class="tab-btn active" data-category="portrait">
-            Portrait & Art <span class="product-count-badge">8</span>
-        </button>
-        <button class="tab-btn" data-category="sketch">
-            Sketches <span class="product-count-badge">8</span>
-        </button>
+<!-- ══ ART SECTION ══ -->
+<section id="art" class="mod-section">
+  <div class="mod-label">Creative Work</div>
+  <h2 class="mod-heading">Art &amp; <span>Portraits</span></h2>
+  <p class="mod-sub">Hand-drawn custom portraits and sketches, made with care. Each piece is one of a kind.</p>
+ 
+  <div class="art-tabs product-tabs">
+    <button class="art-tab tab-btn active" data-category="portrait">
+      Portrait &amp; Art <span class="count product-count-badge">8</span>
+    </button>
+    <button class="art-tab tab-btn" data-category="sketch">
+      Sketches <span class="count product-count-badge">8</span>
+    </button>
+  </div>
+ 
+  <div class="gallery-container">
+    <div class="gallery" id="portrait-gallery"></div>
+    <div class="pagination" id="portrait-pagination">
+      <button class="page-btn" data-page="1">1</button>
+      <button class="page-btn" data-page="2">2</button>
+      <button class="page-btn" data-page="3">3</button>
+      <button class="page-btn" data-page="4">4</button>
     </div>
-    
-    <!-- Portrait Gallery -->
-    <div class="gallery-container">
-        <div class="gallery" id="portrait-gallery"></div>
-        <div class="pagination" id="portrait-pagination">
-            <button class="page-btn" data-page="1">1</button>
-            <button class="page-btn" data-page="2">2</button>
-            <button class="page-btn" data-page="3">3</button>
-            <button class="page-btn" data-page="4">4</button>
-        </div>
+  </div>
+ 
+  <div class="gallery-container" style="display:none">
+    <div class="gallery" id="sketch-gallery"></div>
+    <div class="pagination" id="sketch-pagination">
+      <button class="page-btn" data-page="1">1</button>
+      <button class="page-btn" data-page="2">2</button>
+      <button class="page-btn" data-page="3">3</button>
+      <button class="page-btn" data-page="4">4</button>
     </div>
-    
-    <!-- Sketch Gallery -->
-    <div class="gallery-container" style="display:none">
-        <div class="gallery" id="sketch-gallery"></div>
-        <div class="pagination" id="sketch-pagination">
-            <button class="page-btn" data-page="1">1</button>
-            <button class="page-btn" data-page="2">2</button>
-            <button class="page-btn" data-page="3">3</button>
-            <button class="page-btn" data-page="4">4</button>
-        </div>
-    </div>
-    
-    <div id="lightbox" class="lightbox">
-        <img class="lightbox-content" id="lightbox-img">
-        <div class="caption" id="lightbox-caption"></div>
-    </div>
+  </div>
+ 
+  <div id="lightbox" class="lightbox">
+    <img class="lightbox-content" id="lightbox-img">
+    <div class="caption" id="lightbox-caption"></div>
+  </div>
 </section>
-    <section id="skills" class="skills">
-        <h2>My Skills & Services</h2>
-        <div class="service-table">
-            <p>Keeping Your Computer in Peak Condition</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Services</th>
-                        <th>Pricing</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <strong>INSTALLATIONS</strong><br><br>
-                            <ul>
-                                <li>Installing Windows 8/10/11</li><br>
-                                <li>Switching from macOS to Windows (vice versa)</li><br>
-                                <li>Installing Kali LINUX</li>
-                            </ul>
-                        </td>
-                        <td class="cost">
-                            R100 | R150 | R200<br><br>
-                            R500<br><br>
-                            R300
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>PC PROBLEMS</strong><br><br>
-                            <ul>
-                                <li>Slow performance</li><br>
-                                <li>Blue Screen of Death (e.g., Your PC ran into a problem...)</li>
-                            </ul>
-                        </td>
-                        <td class="cost"><br><br>
-                            R600 (Prices may vary depending on your PC)<br><br><br>
-                            150
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>UNKNOWN ISSUES</strong>
-                            <ul>
-                                <br><li>Message Me</li>
-                            </ul>
-                        </td>
-                        <td class="cost"><br>
-                            To Be Discussed
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+ 
+ 
+<!-- ══ SKILLS & SERVICES ══ -->
+<section id="skills" class="mod-section">
+  <div class="mod-label">What I offer</div>
+  <h2 class="mod-heading">Skills &amp; <span>Services</span></h2>
+  <p class="mod-sub">From OS installs to full custom websites — here's what I can do for you.</p>
+ 
+  <div class="skills-layout">
+    <div class="svc-card">
+      <div class="svc-card-label">Installations</div>
+     <div class="svc-item">
+        <div class="svc-name">Windows 10 <small>Standard install</small></div>
+        <div class="svc-price">R150</div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-name">Windows 11 <small>Latest release</small></div>
+        <div class="svc-price">R180</div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-name">macOS ↔ Windows <small>Full migration</small></div>
+        <div class="svc-price">R300</div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-name">Kali Linux <small>Dual boot or VM</small></div>
+        <div class="svc-price">R300</div>
+      </div>
+    </div>
+ 
+    <div class="svc-card">
+      <div class="svc-card-label">PC Problems</div>
+      <div class="svc-item">
+        <div class="svc-name">Slow performance <small>Diagnosis &amp; optimisation</small></div>
+        <div class="svc-price">R600+</div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-name">Blue Screen of Death <small>Crash analysis &amp; fix</small></div>
+        <div class="svc-price">R150</div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-name">Unknown issues <small>Diagnosis first, quote after</small></div>
+        <div class="svc-price">To Be Discussed</div>
+      </div>
+    </div>
+ 
+    <div class="web-pricing-card">
+      <div class="web-tier">
+        <div class="web-tier-label">Starter</div>
+        <div class="web-tier-price">R2000 <span>once-off</span></div>
+        <div class="web-tier-desc">1–2 pages. Clean, professional, mobile-ready.</div>
+        <div class="web-tier-note">Perfect for portfolios &amp; profiles</div>
+      </div>
+      <div class="web-tier featured">
+        <div class="web-tier-label">Standard</div>
+        <div class="web-tier-price">R3500 <span>once-off</span></div>
+        <div class="web-tier-desc">3–4 pages. Custom design, animations, contact form.</div>
+        <div class="web-tier-note">Best for small businesses</div>
+      </div>
+      <div class="web-tier">
+        <div class="web-tier-label">E-Commerce</div>
+        <div class="web-tier-price">R5000 <span>once-off</span></div>
+        <div class="web-tier-desc">5+ pages. Full shop, payments, product management.</div>
+        <div class="web-tier-note">Full online store setup</div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+ 
+<!-- ══ PROJECTS ══ -->
+<section id="websites" class="mod-section">
+  <div class="mod-label">Projects</div>
+  <h2 class="mod-heading">Websites &amp; <span>Projects</span></h2>
+  <p class="mod-sub">Things I've built. More dropping soon.</p>
+ 
+  <div class="projects-grid">
+    <div class="proj-card">
+      <div class="proj-img">
+        <img src="calculator.png" alt="Calculator App">
+        <div class="proj-img-overlay"></div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-tags">
+          <span class="proj-tag">HTML</span>
+          <span class="proj-tag">CSS</span>
+          <span class="proj-tag">JavaScript</span>
         </div>
-        <div class="box">
-            <h1>Need a Professional Website?</h1>
-            <p>We've got you covered</p>
-            <hr>
-            <div class="services">
-                <div class="service-item">
-                    <span>1-2 pages</span>
-                    <div class="price">R2000</div>
-                </div>
-                <div class="service-item">
-                    <span>3-4 pages</span>
-                    <div class="price">R3500</div>
-                </div>
-                <div class="service-item">
-                    <span>5+ pages e-commerce</span>
-                    <div class="price">R5000</div>
-                </div>
-                <hr>
-                <p>And yep I did this website you are admiring...</p>
-            </div>
+        <div class="proj-title">Calculator App</div>
+        <div class="proj-desc">A clean, responsive calculator built from scratch. Handles standard arithmetic with a smooth UI and keyboard support.</div>
+        <div class="proj-links">
+          <a href="#" class="proj-link primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          <a href="https://github.com/nhlexric28/calculator-app" class="proj-link secondary"><i class="fab fa-github"></i> Source</a>
         </div>
-    </section>
-
-
-    <section id="websites" class="websites">
-        <h2>Websites & Projects</h2>
-        <div class="projects-container">
-                  
-            <!-- Project 3 -->
-            <div class="project">
-                <div class="project-image">
-                    <img src="calculator.png" alt="Tech Blog">
-                </div>
-                <div class="project-details">
-                    <h3>Calculator App</h3>
-                    <p>A content management system for tech enthusiasts to publish articles, tutorials, and reviews. Features user authentication, content categorization, and comment system.</p>
-                    <div class="project-tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                      
-                        <a href="https://github.com/nhlexric28/calculator-app" class="project-link">
-                            <i class="fab fa-github"></i> Source Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <p style="color: #fff;">More to come...!</p>
-            
+      </div>
+    </div>
+ 
+    <div class="proj-card coming-soon">
+      <div class="proj-coming-icon">🚧</div>
+      <div class="proj-coming-text">More projects coming soon</div>
+    </div>
+  </div>
+</section>
+ 
+ 
+<!-- ══ CONTACT ══ -->
+<section id="contact" class="mod-section">
+  <div class="mod-label">Get in touch</div>
+  <h2 class="mod-heading">Let's <span>Talk</span></h2>
+  <p class="mod-sub">Have a project in mind or need tech help? Drop a message and I'll get back to you.</p>
+ 
+  <div class="contact-layout">
+    <div class="contact-info">
+      <div class="contact-info-item">
+        <div class="contact-info-icon">📍</div>
+        <div>
+          <div class="contact-info-label">Location</div>
+          <div class="contact-info-val">Johannesburg, South Africa</div>
         </div>
-    </section>
-    <section id="contact" class="contact">
-        
-        <h2> Contact Us</h2>
-
-        <form id="contact-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>© 2025 Sketchpressotech. All rights reserved.
-        <aside style="color: #fff; font-style: italic; font-weight: bolder;">Designed by:</aside><a
-            href="https://sketchpressotech-website-portfolio.onrender.com"> Sketchpressotech</a></p>
-        <div id="connect-float">
-            <div id="connect-icon">
-                <i class="fas fa-share-alt"></i>
-            </div>
-            <div id="connect-links">
-                <a href="https://wa.me/+27848422545" target="_blank" aria-label="WhatsApp"><i
-                        class="fab fa-whatsapp"></i></a>
-                <a href="https://www.instagram.com/sketchpressotech" target="_blank" aria-label="Instagram"><i
-                        class="fab fa-instagram"></i></a>
-                <a href="https://github.com/nhlexric28" target="_blank" aria-label="GitHub"><i
-                        class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/sketchpressotech" target="_blank" aria-label="LinkedIn"><i
-                        class="fab fa-linkedin"></i></a>
-            </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">💼</div>
+        <div>
+          <div class="contact-info-label">Services</div>
+          <div class="contact-info-val">Web Dev · PC Repairs · Art Commissions</div>
         </div>
-    </footer>
-   
-    <script src="script.js"></script>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">⚡</div>
+        <div>
+          <div class="contact-info-label">Response time</div>
+          <div class="contact-info-val">Usually within 24 hours</div>
+        </div>
+      </div>
+      <div class="contact-availability">
+        <span class="avail-dot"></span>
+        <span class="avail-text">Available for new projects</span>
+      </div>
+    </div>
+ 
+    <div class="contact-form-wrap">
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" placeholder="e.g. Thabo Mokoena" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me about your project or issue..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+ 
+ 
+<!-- ══ FOOTER ══ -->
+<footer class="mod-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="https://sketchpressotech-website-portfolio.onrender.com" class="footer-logo">Sketchpressotech</a>
+      <div class="footer-tagline">Web Dev · PC Repairs · Art Commissions · Johannesburg</div>
+    </div>
+    <div class="footer-socials">
+      <a href="https://wa.me/+27848422545" target="_blank" aria-label="WhatsApp" class="footer-social-link">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="https://www.instagram.com/sketchpressotech" target="_blank" aria-label="Instagram" class="footer-social-link">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://github.com/nhlexric28" target="_blank" aria-label="GitHub" class="footer-social-link">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/sketchpressotech" target="_blank" aria-label="LinkedIn" class="footer-social-link">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  </div>
+ 
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Sketchpressotech. All rights reserved.</span>
+    <span class="footer-credit">Designed &amp; built by <a href="https://sketchpressotech-website-portfolio.onrender.com">Sketchpressotech</a></span>
+  </div>
+ 
+  <!-- Floating connect button (keep your existing JS) -->
+  <div id="connect-float">
+    <div id="connect-icon">
+      <i class="fas fa-share-alt"></i>
+    </div>
+    <div id="connect-links">
+      <a href="https://wa.me/+27848422545" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/sketchpressotech" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/nhlexric28" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/sketchpressotech" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+ 
+<button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top">↑</button>
+ 
+<script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
